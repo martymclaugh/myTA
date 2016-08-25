@@ -1,4 +1,7 @@
 class TeachersController < ApplicationController
+  def index
+  end
+  
   def create
     if params[:teacher][:password] == params[:teacher][:password_confirmation]
       teacher = Teacher.new(teacher_params)

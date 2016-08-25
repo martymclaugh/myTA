@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root '/'
+  root 'teachers#index'
 
   resources :sessions, only: [:new, :create, :destroy]
   resources :teachers do
@@ -11,10 +11,9 @@ Rails.application.routes.draw do
     end
   end
 end
-
-get '/login' => 'sessions#new'
-post '/login' => 'sessions#create'
-get '/logout' => 'sessions#destroy'
-
-get '/signup' => 'teachers#new'
-post '/teachers' => 'teachers#create'
+# get '/login' => 'sessions#new'
+# post '/login' => 'sessions#create'
+# get '/logout' => 'sessions#destroy'
+#
+# get '/signup' => 'teachers#new'
+# post '/teachers' => 'teachers#create'
