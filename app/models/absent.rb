@@ -1,0 +1,2 @@
+class Absent < ApplicationRecord
+end
