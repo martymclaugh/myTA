@@ -1,8 +1,8 @@
 class CreateStudentQuestions < ActiveRecord::Migration[5.0]
   def change
-    create_join_table :students, :questions do |t|
-      t.index [:student_id, :question_id]
-      t.index [:question_id, :student_id]
+    create_table :student_questions do |t|
+      t.integer :student_id
+      t.integer :question_id
     end
   end
 end

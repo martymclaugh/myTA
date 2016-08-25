@@ -1,3 +1,4 @@
 class Question < ApplicationRecord
-  has_and_belongs_to_many :students
+  has_many :students, through: :student_questions
+  has many :student_questions
 end

@@ -1,3 +1,4 @@
 class Absence < ApplicationRecord
-  has_and_belongs_to_many :students
+  has_many :absence_students
+  has_many :students, through: :absence_students
 end

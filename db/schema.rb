@@ -10,10 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160825180425) do
+ActiveRecord::Schema.define(version: 20160825185353) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "absence_students", force: :cascade do |t|
+    t.integer "student_id"
+    t.integer "absence_id"
+  end
 
   create_table "absences", force: :cascade do |t|
     t.boolean  "absence"
@@ -21,11 +26,9 @@ ActiveRecord::Schema.define(version: 20160825180425) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "absences_students", id: false, force: :cascade do |t|
-    t.integer "student_id", null: false
-    t.integer "absence_id", null: false
-    t.index ["absence_id", "student_id"], name: "index_absences_students_on_absence_id_and_student_id", using: :btree
-    t.index ["student_id", "absence_id"], name: "index_absences_students_on_student_id_and_absence_id", using: :btree
+  create_table "classroom_students", force: :cascade do |t|
+    t.integer "student_id"
+    t.integer "classroom_id"
   end
 
   create_table "classrooms", force: :cascade do |t|
@@ -35,24 +38,15 @@ ActiveRecord::Schema.define(version: 20160825180425) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "classrooms_students", id: false, force: :cascade do |t|
-    t.integer "student_id",   null: false
-    t.integer "classroom_id", null: false
-    t.index ["classroom_id", "student_id"], name: "index_classrooms_students_on_classroom_id_and_student_id", using: :btree
-    t.index ["student_id", "classroom_id"], name: "index_classrooms_students_on_student_id_and_classroom_id", using: :btree
-  end
-
   create_table "questions", force: :cascade do |t|
     t.boolean  "answer"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "questions_students", id: false, force: :cascade do |t|
-    t.integer "student_id",  null: false
-    t.integer "question_id", null: false
-    t.index ["question_id", "student_id"], name: "index_questions_students_on_question_id_and_student_id", using: :btree
-    t.index ["student_id", "question_id"], name: "index_questions_students_on_student_id_and_question_id", using: :btree
+  create_table "student_questions", force: :cascade do |t|
+    t.integer "student_id"
+    t.integer "question_id"
   end
 
   create_table "students", force: :cascade do |t|
