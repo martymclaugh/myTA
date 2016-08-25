@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       resources :questions
       resources :absences
     end
+  end
 end
 
 get '/login' => 'sessions#new'
