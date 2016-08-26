@@ -1,0 +1,32 @@
+<h1><%= @teacher.name.capitalize %>'s Profile</h1>
+
+<% if logged_in? %>
+
+<% if @teacher.id == session[:teacher_id] %>
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#Class">
+  Create New Class
+</button>
+  <div class="container">
+      <div class="modal fade" id="Class" role="dialog">
+          <div class="modal-dialog">
+              <div class="modal-content">
+                  <div class="modal-header center" style="padding:35px 50px;">
+                      <button type="button" class="close white" data-dismiss="modal">&times;</button>
+                      <h1 class="modal-title">Create New Class</h1>
+                  </div>
+                  <div class="modal-body">
+                      <form role="form" action="/teachers/<%= params[:id] %>/classrooms" method="post">
+                          <div class="form-group">
+                              <label for="class-name">
+                                  Class Name:</label>
+                              <input type="text" class="form-control" id="class-name" name="name" placeholder="Basic Algebra, 1st Period...">
+                          </div>
+                          <button type="submit" class="btn btn-success btn-block">Create</button><br>
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+<% end %>
+<% end %>
