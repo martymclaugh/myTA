@@ -7,7 +7,7 @@ class TeamsController < ApplicationController
     end
     @teams = @students.shuffle.in_groups(@number)
     @teams.each do |team|
-      t = Team.create(name: Faker::Team.creature.capitalize)
+      t = Team.create(name: Faker::Team.creature.capitalize, classroom_id: params[:classroom])
       team.each do |student|
         StudentTeam.create(student_id: student.id, team_id: t.id)
       end
