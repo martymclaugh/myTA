@@ -1,6 +1,5 @@
 class StudentsController < ApplicationController
   def create
-    p params
     @student = Student.new(name: params[:name])
     if @student.save
       ClassroomStudent.create(student_id: @student.id, classroom_id: params[:classroom_id])

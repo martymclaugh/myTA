@@ -11,6 +11,5 @@ class ClassroomsController < ApplicationController
 
   def show
     @classroom = Classroom.find(params[:id])
-    p @classroom.students
   end
 end
