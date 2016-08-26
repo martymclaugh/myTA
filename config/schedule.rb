@@ -29,3 +29,7 @@ every 1.day, :at => '2:25pm' do
   puts "*" * 100
   rake "reset_absences"
 end
+
+every 1.minute do
+  puts "*" * 100
+end
