@@ -19,4 +19,7 @@ class TeamsController < ApplicationController
     end
     redirect_to "/teachers/#{params[:teacher_id]}/classrooms/#{params[:classroom]}/teams"
   end
+
+  def destroy
+  end
 end

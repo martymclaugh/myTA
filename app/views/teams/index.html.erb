@@ -1,0 +1,14 @@
+<h1>
+    <%= @classroom.teacher.name %>'s
+    <%= @classroom.name %>
+    Teams
+</h1>
+<%= button_to('Clear Teams', "/",
+          method: "delete", remote: true, data: { confirm: 'Are you sure?', disable_with: 'loading...' }) %>
+
+<% @classroom.teams.each do |team| %>
+<h3><%= team.name %></h3>
+<% team.students.each do |student| %>
+<li><%= student.name %></li>
+<% end %>
+<% end %>
