@@ -1,0 +1,63 @@
+<h1><%= @classroom.teacher.name.capitalize %>'s
+    <%= @classroom.name.capitalize %>
+    Class</h1>
+
+<% if logged_in? %>
+<% if @classroom.teacher_id == current_user.id %>
+<% if @classroom.students.count > 3 %>
+<button type="submit" class="btn btn-success btn" data-toggle="modal" data-target="#Teams">Create New Teams</button>
+<% if @classroom.teams.present? %>
+<form action="/teachers/<%= params[:teacher_id] %>/classrooms/<%= params[:id] %>/teams">
+    <button type="submit" class="btn btn-success btn">View Teams</button><br>
+</form>
+<% end %>
+<% end %>
+<div class="container">
+    <div class="modal fade" id="Teams" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header center" style="padding:35px 50px;">
+                    <button type="button" class="close white" data-dismiss="modal">&times;</button>
+                    <h1 class="modal-title">Teams</h1>
+                </div>
+                <div class="modal-body">
+                    You have
+                    <%= @classroom.students.count %>
+                    students
+                    <form role="form" action="/teachers/<%= @classroom.teacher.id %>/classrooms/<%= @classroom.id %>/teams" method="post">
+                        <div class="form-group">
+                            <label for="teams">
+                                How many teams would you like?</label>
+                            <input type="text" class="form-control" id="teams" name="teams" placeholder="enter number">
+                            <input type="hidden" class="form-control" id="class-name" name="classroom" value="<%= @classroom.id %>">
+                        </div>
+                        <button type="submit" class="btn btn-success btn-block">Create Teams</button><br>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<h2>Students:</h2>
+<% @classroom.students.each do |student| %>
+<h3>
+<li><%= student.name %>
+    <% if student.absences.last.absence == true %>
+    <form style="display:inline;" action="/teachers/<%= params[:teacher_id] %>/classrooms/<%= @classroom.id %>/students/<%= student.id %>/absences" method="patch">
+        <button type="submit" class="btn btn-success btn">Here</button>
+    </form>
+    <% end %>
+</li>
+</h3>
+
+<% end %>
+<form role="form" action="/teachers/<%= params[:id] %>/classrooms/<%= @classroom.id %>/students" method="post">
+<div class="form-group">
+    <label for="student-name">
+        Student Name:</label>
+    <input style="width: 20%" type="text" class="form-control" id="student-name" name="name" placeholder="Marty, Max, Andy...">
+</div>
+<button type="submit" class="btn btn-success btn">Add Student</button><br>
+</form>
+<% end %>
+<% end %>
