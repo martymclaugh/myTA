@@ -25,6 +25,6 @@
 # every :day, at: '1:07pm' do
 #   rake 'reset_absences'
 # end
-every 1.day, :at => '9:10pm' do
+every 1.day, :at => '2:23pm' do
   rake "reset_absences"
 end
