@@ -12,4 +12,11 @@ class ClassroomsController < ApplicationController
   def show
     @classroom = Classroom.find(params[:id])
   end
+
+  def destroy
+    p params
+    @classroom = Classroom.find(params[:id])
+    @classroom.destroy
+    redirect_to "/teachers/#{params[:teacher_id]}"
+  end
 end
