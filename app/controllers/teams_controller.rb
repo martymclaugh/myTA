@@ -9,13 +9,18 @@ class TeamsController < ApplicationController
       @students << student
     end
     @teams = @students.shuffle.in_groups(@number)
+    p @teams
     @t = []
     @teams.each do |team|
       t = Team.create(name: Faker::Team.creature.capitalize, classroom_id: params[:classroom])
       team.each do |student|
-        StudentTeam.create(student_id: student.id, team_id: t.id)
-        @t << t
+        if t.present? && student.present?
+          StudentTeam.create(student_id: student.id, team_id: t.id)
+        else
+          break
+        end
       end
+      @t << t
     end
     redirect_to "/teachers/#{params[:teacher_id]}/classrooms/#{params[:classroom]}/teams"
   end
