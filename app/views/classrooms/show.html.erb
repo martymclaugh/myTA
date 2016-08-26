@@ -1,0 +1,16 @@
+<h1><%= @classroom.teacher.name.capitalize %>'s <%= @classroom.name.capitalize %> Class</h1>
+
+<% if logged_in? %>
+<% if @classroom.teacher_id == current_user.id %>
+<button type="submit" class="btn btn-success btn-block">Create Teams</button><br>
+
+<form role="form" action="/teachers/<%= params[:id] %>/classrooms/<%= @classroom.id %>/students" method="post">
+    <div class="form-group">
+        <label for="student-name">
+            Student Name:</label>
+        <input type="text" class="form-control" id="student-name" name="name" placeholder="Marty, Max, Andy...">
+    </div>
+    <button type="submit" class="btn btn-success btn-block">Add Student</button><br>
+</form>
+<% end %>
+<% end %>
