@@ -42,12 +42,13 @@
 <% @classroom.students.each do |student| %>
 <h3>
 <li><%= student.name %>
-<form style="display:inline;" action="/teachers/<%= params[:teacher_id] %>/classrooms/<%= @classroom.id %>/students/<%= student.id %>/absences" method="patch">
-  <button type="submit" class="btn btn-success btn">Here</button>
-</form>
+    <% if student.absences.last.absence == true %>
+    <form style="display:inline;" action="/teachers/<%= params[:teacher_id] %>/classrooms/<%= @classroom.id %>/students/<%= student.id %>/absences" method="patch">
+        <button type="submit" class="btn btn-success btn">Here</button>
+    </form>
+    <% end %>
 </li>
 </h3>
-
 
 <% end %>
 <form role="form" action="/teachers/<%= params[:id] %>/classrooms/<%= @classroom.id %>/students" method="post">
