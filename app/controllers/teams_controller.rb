@@ -6,10 +6,11 @@ class TeamsController < ApplicationController
     @number = params[:teams].to_i
     @students = []
     Classroom.find(params[:classroom]).students.each do |student|
-      @students << student
+      if student.absences.last.absence == false
+        @students << student
+      end
     end
     @teams = @students.shuffle.in_groups(@number)
-    p @teams
     @t = []
     @teams.each do |team|
       t = Team.create(name: Faker::Team.creature.capitalize, classroom_id: params[:classroom])
