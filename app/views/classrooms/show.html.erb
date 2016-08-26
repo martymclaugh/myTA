@@ -61,3 +61,11 @@
 </form>
 <% end %>
 <% end %>
+
+<% if !logged_in? %>
+<% @classroom.students.each do |student| %>
+<h3>
+<li><%= student.name %>
+</li>
+</h3>
+<% end %>
