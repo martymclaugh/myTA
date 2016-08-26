@@ -1,10 +1,10 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery with: :exception
+  protect_from_forgery
 
   private
 
   def current_user
-    @current_user ||= Player.find(session[:player_id]) if session[:player_id]
+    @current_user ||= Teacher.find(session[:teacher_id]) if session[:teacher_id]
   end
   helper_method :current_user
 
@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   end
 
   def logged_in?
-    session[:player_id].present?
+    session[:teacher_id].present?
   end
   helper_method :logged_in?
 end

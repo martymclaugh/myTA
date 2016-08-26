@@ -35,6 +35,7 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
                     <ul class="nav navbar-nav navbar-right">
+                      <%= p session[:teacher_id] %>
                         <% if logged_in? %>
                         <% p current_user %>
                         <li>
@@ -76,16 +77,16 @@
                         <h1 class="modal-title">Login</h1>
                     </div>
                     <div class="modal-body">
-                        <form role="form" action="/login" >
+                        <form role="form" action="/sessions" method="post" >
                             <div class="form-group">
                                 <label for="email">
                                     <span class="fa fa-user"></span>
                                     Email</label>
-                                <input type="text" class="form-control" id="email" placeholder="Enter email">
+                                <input type="text" class="form-control" id="email" name="email"  placeholder="Enter email">
                             </div>
                             <div class="form-group">
                                 <label for="password">Password</label>
-                                <input type="text" class="form-control" id="password" placeholder="Enter password">
+                                <input type="text" class="form-control" id="password" name="password" placeholder="Enter password">
                             </div>
                             <button type="submit" class="btn btn-success btn-block">Login</button><br>
                         </form>
@@ -104,29 +105,28 @@
                         <h1 class="modal-title">Register</h1>
                     </div>
                     <div class="modal-body">
-                        <form role="form" action="/register" method="post">
+                        <form role="form" action="/teachers" method="post">
                             <div class="form-group">
                                 <label for="name">
                                     <span class="fa fa-user"></span>
                                     Name:</label>
-                                <input type="text" class="form-control" id="name" placeholder="Enter Name">
+                                <input type="text" class="form-control" id="name" name="name"  placeholder="Enter Name">
                             </div>
                             <div class="form-group">
                                 <label for="email">
                                     <span class="fa fa-user"></span>
                                     Email:</label>
-                                <input type="text" class="form-control" id="email" placeholder="Enter email">
+                                <input type="text" class="form-control" id="email" name="email"  placeholder="Enter email">
                             </div>
 
                             <div class="form-group">
                                 <label for="password">Password:</label>
-                                <input type="text" class="form-control" id="password" placeholder="Enter password">
+                                <input type="text" class="form-control" name="password" id="password" placeholder="Enter password">
                             </div>
                             <div class="form-group">
                                 <label for="password">Password Confirmation:</label>
-                                <input type="text" class="form-control" id="password2" placeholder="Enter password">
+                                <input type="text" class="form-control" id="password2" name="password2"  placeholder="Enter password">
                             </div>
-
                             <button type="submit" class="btn btn-success btn-block">Register</button><br>
                         </form>
                     </div>
