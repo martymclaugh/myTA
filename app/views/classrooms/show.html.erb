@@ -2,15 +2,21 @@
 
 <% if logged_in? %>
 <% if @classroom.teacher_id == current_user.id %>
-<button type="submit" class="btn btn-success btn-block">Create Teams</button><br>
+<% if @classroom.students.count > 3 %>
+<button type="submit" class="btn btn-success btn">Create Teams</button><br>
+<% end %>
 
+<h2>Students:</h2>
+<% @classroom.students.each do |student| %>
+<h3><li><%= student.name %></li></h3>
+<% end %>
 <form role="form" action="/teachers/<%= params[:id] %>/classrooms/<%= @classroom.id %>/students" method="post">
     <div class="form-group">
         <label for="student-name">
             Student Name:</label>
         <input type="text" class="form-control" id="student-name" name="name" placeholder="Marty, Max, Andy...">
     </div>
-    <button type="submit" class="btn btn-success btn-block">Add Student</button><br>
+    <button type="submit" class="btn btn-success btn">Add Student</button><br>
 </form>
 <% end %>
 <% end %>
