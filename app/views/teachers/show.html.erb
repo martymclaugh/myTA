@@ -30,3 +30,7 @@
   </div>
 <% end %>
 <% end %>
+
+<% @classrooms.each do |classroom| %>
+  <a href="/teachers/<%= params[:id] %>/classrooms/<%= classroom.id %>"><h2><%= classroom.name %></h2></a>
+<% end %>
