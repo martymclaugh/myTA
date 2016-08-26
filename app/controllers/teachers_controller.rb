@@ -1,16 +1,15 @@
 class TeachersController < ApplicationController
-  def create
-    if params[:teacher][:password] == params[:teacher][:password_confirmation]
-      teacher = Teacher.new(teacher_params)
-    end
-    if teacher.save
-      session[:id] = teacher.id
-    end
+  def index
   end
 
-  protected
+  def create
+    if params[:password] == params[:password2]
+      teacher = Teacher.new(name: params[:name], email: params[:email], password: params[:password])
+    end
 
-  def teacher_params
-    params.require(:teacher).permit(:name, :email, :password)
+    if teacher.save
+      session[:teacher_id] = teacher.id
+      redirect_to '/'
+    end
   end
 end
