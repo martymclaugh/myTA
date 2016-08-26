@@ -10,10 +10,10 @@ Rails.application.routes.draw do
       resources :absences
     end
   end
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  get '/logout' => 'sessions#destroy'
+
+  get '/signup' => 'teachers#new'
+  post '/teachers' => 'teachers#create'
 end
-# get '/login' => 'sessions#new'
-# post '/login' => 'sessions#create'
-# get '/logout' => 'sessions#destroy'
-#
-# get '/signup' => 'teachers#new'
-# post '/teachers' => 'teachers#create'
