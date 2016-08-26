@@ -5,10 +5,11 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   resources :teachers do
     resources :classrooms do
-      resources :students
+      resources :students do
+        resources :absences
+      end
       resources :teams
       resources :questions
-      resources :absences
     end
   end
   get '/login' => 'sessions#new'
