@@ -19,7 +19,7 @@
 
 # Learn more: http://github.com/javan/whenever
 
-every 1.day, :at => '12:45 pm' do
+every 1.day, :at => '12:55 pm' do
   Student.all.each do |student|
     a = Absence.create(absence: true)
     AbsenceStudent.create(student_id: student.id, absence_id: a.id)
