@@ -3,7 +3,7 @@
 <% if logged_in? %>
 <% if @classroom.teacher_id == current_user.id %>
 <% if @classroom.students.count > 3 %>
-<button type="submit" class="btn btn-success btn" data-toggle="modal" data-target="#Teams">Create Teams</button><br>
+<button type="submit" class="btn btn-success btn" data-toggle="modal" data-target="#Teams">Teams</button><br>
 <% end %>
 <div class="container">
     <div class="modal fade" id="Teams" role="dialog">
@@ -14,7 +14,15 @@
                     <h1 class="modal-title">Teams</h1>
                 </div>
                 <div class="modal-body">
-                    teams
+                    You have <%= @classroom.students.count %> students
+                    <form role="form" action="/teachers/<%= params[:id] %>/classrooms" method="post">
+                        <div class="form-group">
+                            <label for="class-name">
+                                How many teams would you like?</label>
+                            <input type="text" class="form-control" id="class-name" name="name" placeholder="enter number">
+                        </div>
+                        <button type="submit" class="btn btn-success btn-block">Create Teams</button><br>
+                    </form>
                 </div>
             </div>
         </div>
