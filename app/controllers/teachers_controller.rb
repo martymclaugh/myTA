@@ -1,5 +1,6 @@
 class TeachersController < ApplicationController
-  def index
+  def show
+    @teacher = Teacher.find(params[:id])
   end
 
   def create

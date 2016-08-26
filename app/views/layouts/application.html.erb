@@ -35,14 +35,16 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
                     <ul class="nav navbar-nav navbar-right">
-                      <%= p session[:teacher_id] %>
                         <% if logged_in? %>
                         <% p current_user %>
                         <li>
-                            <a href="/">Hi
+                            <a href="">Welcome
                                 <%= current_user.name.capitalize %>!
                             </a>
                         </li>
+                        <ul class="nav navbar-nav left">
+                            <li>  <a href="/teachers/<%= current_user.id %>"> My Classes </a></li>
+                        </ul>
                         <ul class="nav navbar-nav navbar-right">
                             <li>  <a id="logout-link" href="/logout"> Logout </a></li>
                         </ul>
@@ -86,7 +88,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="password">Password</label>
-                                <input type="text" class="form-control" id="password" name="password" placeholder="Enter password">
+                                <input type="password" class="form-control" id="password" name="password" placeholder="Enter password">
                             </div>
                             <button type="submit" class="btn btn-success btn-block">Login</button><br>
                         </form>
@@ -121,11 +123,11 @@
 
                             <div class="form-group">
                                 <label for="password">Password:</label>
-                                <input type="text" class="form-control" name="password" id="password" placeholder="Enter password">
+                                <input type="password" class="form-control" name="password" id="password" placeholder="Enter password">
                             </div>
                             <div class="form-group">
                                 <label for="password">Password Confirmation:</label>
-                                <input type="text" class="form-control" id="password2" name="password2"  placeholder="Enter password">
+                                <input type="password" class="form-control" id="password2" name="password2"  placeholder="Enter password">
                             </div>
                             <button type="submit" class="btn btn-success btn-block">Register</button><br>
                         </form>
