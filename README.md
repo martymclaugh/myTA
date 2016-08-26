@@ -1,24 +1,36 @@
-# README
+# myTA
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+* myTA is a basic web application built using rails 5.0.0.1
+* Designed to make teachers lives easier by creating a simple way to record attendance and select project teams based on attendance
 
-* Ruby version
+* Create classes and add students.
 
-* System dependencies
+* All classes and students will be saved to your account.
 
-* Configuration
+* Keep track of your students, by marking whether they are absent or not.
 
-* Database creation
+* Students will be marked as absent every day at 12 AM PST
 
-* Database initialization
+* Create groups and teams based on who is currently here.
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+## Contributing
+## Fork the repo.
 
-* Deployment instructions
+* Currently there are no tests, and I would love if people were to create some.
 
-* ...
+* myTA is very bare bones and any contributions will be very appreciated
+
+* Try to dd a test for your change. Refactoring and documentation changes do not need new tests.
+
+* Push to your fork and submit a pull request.
+
+## Syntax:
+
+* Two spaces, no tabs.
+* No trailing whitespace. Blank lines should not have any space.
+* Prefer &&, || over and, or.
+* MyClass.my_method(my_arg) not my_method( my_arg ) or my_method my_arg.
+* a = b and not a=b.
+* Follow the conventions you see used in the source already.
