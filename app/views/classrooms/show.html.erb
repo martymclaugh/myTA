@@ -18,7 +18,7 @@
 <% end %>
 <input id="classroom_id" type="hidden" value="<%= @classroom.id %>">
 <input id="teacher_" type="hidden" value="<%= @classroom.teacher.id %>">
-
+<input id="students" type="hidden" value="<%= @classroom.id %>">
 <button id="true-random" type="submit" class="btn btn-success btn" data-toggle="modal" data-target="#TrueRandom">Random Student(True)</button>
 <div class="container">
     <div class="modal fade" id="TrueRandom" role="dialog">
