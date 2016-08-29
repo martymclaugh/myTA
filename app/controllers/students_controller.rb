@@ -8,4 +8,18 @@ class StudentsController < ApplicationController
       redirect_to "/teachers/#{params[:teacher_id]}/classrooms/#{params[:classroom_id]}"
     end
   end
+  def index
+    @classroom = Classroom.find(params[:classroom_id])
+    @students = []
+    @classroom.students.each do |student|
+      @students << student.name
+    end
+    @students = @students.shuffle
+    @student = @students[0]
+    @students.delete(@student)
+    p @students
+    if request.xhr?
+      render template: 'classrooms/_cyclic_random.html.erb', layout: false
+    end
+  end
 end
