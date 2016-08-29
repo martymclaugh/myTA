@@ -48,35 +48,22 @@
     <div class="[ col-xs-12 col-sm-6 ]">
         <h2>Students:</h2>
         <% @classroom.students.each do |student| %>
-        <h3>
         <li>
-            <div class="[ form-group ]">
-                <input type="checkbox" name="fancy-checkbox-success" id="fancy-checkbox-success" autocomplete="off"/>
-                <div class="[ btn-group ]">
-                    <label for="fancy-checkbox-success" class="[ btn btn-success ]">
-                        <span class="[ glyphicon glyphicon-ok ]"></span>
-                        <span></span>
-                    </label>
-                    <label for="fancy-checkbox-success" class="[ btn btn-default active ]">
-                        <%= student.name %>
-                    </label>
-                </div>
-            </div>
+          <input type="checkbox" checked data-toggle="toggle" data-on="<%= student.name %>" data-off=" <%= student.name %> " data-onstyle="success" data-offstyle="danger">
         </li>
-    </h3>
 
-    <% end %>
-</div>
+        <% end %>
+    </div>
 
 </div>
 </div>
 <form role="form" action="/teachers/<%= params[:id] %>/classrooms/<%= @classroom.id %>/students" method="post">
 <div class="form-group">
-<label for="student-name">
-    Student Name:</label>
-<input style="width: 20%" type="text" class="form-control" id="student-name" name="name" placeholder="Marty, Max, Andy...">
+    <label for="student-name">
+        Student Name:</label>
+    <input style="width: 20%" type="text" class="form-control" id="student-name" name="name" placeholder="Marty, Max, Andy...">
 </div>
-<button type="submit" class="btn btn-success btn">Add Student</button><br>
+<button type="submit" class="btn btn-primary btn">Add Student</button><br>
 </form>
 <% end %>
 <% end %>

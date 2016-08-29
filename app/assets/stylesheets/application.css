@@ -10,3 +10,26 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  **/
+
+
+ .form-group input[type="checkbox"] {
+     display: none;
+ }
+
+ .form-group input[type="checkbox"] + .btn-group > label span {
+     width: 20px;
+ }
+
+ .form-group input[type="checkbox"] + .btn-group > label span:first-child {
+     display: none;
+ }
+ .form-group input[type="checkbox"] + .btn-group > label span:last-child {
+     display: inline-block;
+ }
+
+ .form-group input[type="checkbox"]:checked + .btn-group > label span:first-child {
+     display: inline-block;
+ }
+ .form-group input[type="checkbox"]:checked + .btn-group > label span:last-child {
+     display: none;
+ }
