@@ -6,10 +6,8 @@ class TeamsController < ApplicationController
     p params
     @number = params[:teams].to_i
     @students = []
-    Classroom.find(params[:classroom]).students.each do |student|
-      if student.absences.last.absence == false
-        @students << student
-      end
+    params[:form][:student_ids].each do |student|
+      @students << Student.find(student)
     end
     @teams = @students.shuffle.in_groups(@number)
     @t = []
