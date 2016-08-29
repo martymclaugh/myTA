@@ -16,7 +16,42 @@
     You need at least 4 students to create teams
 </p>
 <% end %>
+<input id="classroom_id" type="hidden" value="<%= @classroom.id %>">
+<input id="teacher_" type="hidden" value="<%= @classroom.teacher.id %>">
+<input id="students" type="hidden" value="<%= @students %>">
+<button id="true-random" type="submit" class="btn btn-success btn" data-toggle="modal" data-target="#TrueRandom">Random Student(True)</button>
+<div class="container">
+    <div class="modal fade" id="TrueRandom" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header center" style="padding:35px 50px;">
+                    <button type="button" class="close white" data-dismiss="modal">&times;</button>
+                    <h1 class="modal-title">The Lucky Student Is:</h1>
+                </div>
+                <div class="modal-body">
+                    <h2 id = "true-random-student"></h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
+<button id="cyclic-random" type="submit" class="btn btn-success btn" data-toggle="modal" data-target="#CyclicRandom">Random Student(cyclic)</button>
+<div class="container">
+    <div class="modal fade" id="CyclicRandom" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header center" style="padding:35px 50px;">
+                    <button type="button" class="close white" data-dismiss="modal">&times;</button>
+                    <h1 class="modal-title">The Lucky Student Is:</h1>
+                </div>
+                <div class="modal-body">
+                    <h2 id = "cyclic-random-student"></h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="container">
     <div class="[ col-xs-12 col-sm-6 ]">
         <h2>Students:</h2>
@@ -25,9 +60,9 @@
                 <input type="search" class="form-control" id="search" placeholder="Student Search">
             </div>
         </div>
-            <h3>
-              <form role="form" action="/teachers/<%= @classroom.teacher.id %>/classrooms/<%= @classroom.id %>/teams" method="post">
-              <% @classroom.students.each do |student| %>
+        <h3>
+            <form role="form" action="/teachers/<%= @classroom.teacher.id %>/classrooms/<%= @classroom.id %>/teams" method="post">
+                <% @classroom.students.each do |student| %>
                 <div class="container" style="position:relative;">
                     <div class="row"></div>
                     <div class="row">
@@ -53,29 +88,27 @@
             </h3>
 
             <% end %>
-    </div>
-    <div class="container">
-        <div class="modal fade" id="Teams" role="dialog">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header center" style="padding:35px 50px;">
-                        <button type="button" class="close white" data-dismiss="modal">&times;</button>
-                        <h1 class="modal-title">Teams</h1>
-                    </div>
-                    <div class="modal-body">
-                        You have
-                        <%= @classroom.students.count %>
-                        students
-<div class="form-group">
-    <label for="teams">
-        How many teams would you like?</label>
-    <input type="text" style="width:20%" class="form-control" id="teams" name="teams" placeholder="enter number">
-    <input type="hidden" class="form-control" id="class-name" name="classroom" value="<%= @classroom.id %>">
-</div>
-<button type="submit" class="btn btn-success btn">Create Teams</button><br>
-</form>
-
-
+        </div>
+        <div class="container">
+            <div class="modal fade" id="Teams" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header center" style="padding:35px 50px;">
+                            <button type="button" class="close white" data-dismiss="modal">&times;</button>
+                            <h1 class="modal-title">Teams</h1>
+                        </div>
+                        <div class="modal-body">
+                            You have
+                            <%= @classroom.students.count %>
+                            students
+                            <div class="form-group">
+                                <label for="teams">
+                                    How many teams would you like?</label>
+                                <input type="text" style="width:20%" class="form-control" id="teams" name="teams" placeholder="enter number">
+                                <input type="hidden" class="form-control" id="class-name" name="classroom" value="<%= @classroom.id %>">
+                            </div>
+                            <button type="submit" class="btn btn-success btn">Create Teams</button><br>
+                        </form>
 
                     </div>
                 </div>
@@ -83,15 +116,14 @@
         </div>
     </div>
 
-
 </div>
 </div>
 <form role="form" action="/teachers/<%= params[:id] %>/classrooms/<%= @classroom.id %>/students" method="post">
 <div class="form-group">
-<label for="student-name">
-    Student Name:</label>
-<input style="width: 20%" type="text" class="form-control" id="student-name" name="name" placeholder="Marty, Max, Andy...">
-<button type="submit" style="display:inline;"class="btn btn-success btn">Add Student</button><br>
+    <label for="student-name">
+        Student Name:</label>
+    <input style="width: 20%" type="text" class="form-control" id="student-name" name="name" placeholder="Marty, Max, Andy...">
+    <button type="submit" style="display:inline;" class="btn btn-success btn">Add Student</button><br>
 </div>
 </form>
 <% end %>

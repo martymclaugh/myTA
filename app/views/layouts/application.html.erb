@@ -28,7 +28,8 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="/"> myTA
+                    <a class="navbar-brand" href="/">
+                        myTA
                         <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
                     </a>
                 </div>
@@ -45,10 +46,18 @@
                             </a>
                         </li>
                         <ul class="nav navbar-nav left">
-                            <li>  <a href="/teachers/<%= current_user.id %>"> My Classes </a></li>
+                            <li>
+                                <a href="/teachers/<%= current_user.id %>">
+                                    My Classes
+                                </a>
+                            </li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
-                            <li>  <a id="logout-link" href="/logout"> Logout </a></li>
+                            <li>
+                                <a id="logout-link" href="/logout">
+                                    Logout
+                                </a>
+                            </li>
                         </ul>
                     <% else %>
                         <ul class="nav navbar-nav navbar-right">
@@ -81,12 +90,12 @@
                         <h1 class="modal-title">Login</h1>
                     </div>
                     <div class="modal-body">
-                        <form role="form" action="/sessions" method="post" >
+                        <form role="form" action="/sessions" method="post">
                             <div class="form-group">
                                 <label for="email">
                                     <span class="fa fa-user"></span>
                                     Email</label>
-                                <input type="text" class="form-control" id="email" name="email"  placeholder="Enter email">
+                                <input type="text" class="form-control" id="email" name="email" placeholder="Enter email">
                             </div>
                             <div class="form-group">
                                 <label for="password">Password</label>
@@ -114,13 +123,13 @@
                                 <label for="name">
                                     <span class="fa fa-user"></span>
                                     Name:</label>
-                                <input type="text" class="form-control" id="name" name="name"  placeholder="Enter Name">
+                                <input type="text" class="form-control" id="name" name="name" placeholder="Enter Name">
                             </div>
                             <div class="form-group">
                                 <label for="email">
                                     <span class="fa fa-user"></span>
                                     Email:</label>
-                                <input type="text" class="form-control" id="email" name="email"  placeholder="Enter email">
+                                <input type="text" class="form-control" id="email" name="email" placeholder="Enter email">
                             </div>
 
                             <div class="form-group">
@@ -129,7 +138,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="password">Password Confirmation:</label>
-                                <input type="password" class="form-control" id="password2" name="password2"  placeholder="Enter password">
+                                <input type="password" class="form-control" id="password2" name="password2" placeholder="Enter password">
                             </div>
                             <button type="submit" class="btn btn-success btn-block">Register</button><br>
                         </form>
@@ -138,7 +147,12 @@
             </div>
         </div>
     </div>
-    <footer><div style="text-align:center;" class="footer navbar-fixed-bottom panel-footer"> myTA is an open source web application created by: Marty McLaughlin. To submit issues or pull requests please visit <a href="https://github.com/martymclaugh/myTA">github.com/martymclaugh/myTA <img style="width: 2%" src="https://cdn0.iconfinder.com/data/icons/octicons/1024/mark-github-128.png" alt="github"></a></footer>
-    <%= yield %>
-</body>
+    <footer>
+        <div style="text-align:center;" class="footer navbar-fixed-bottom panel-footer">
+            myTA is an open source web application created by: Marty McLaughlin. To submit issues or pull requests please visit
+            <a href="https://github.com/martymclaugh/myTA">github.com/martymclaugh/myTA
+                <img style="width: 2%" src="https://cdn0.iconfinder.com/data/icons/octicons/1024/mark-github-128.png" alt="github"></a>
+        </footer>
+        <%= yield %>
+    </body>
 </html>

@@ -14,6 +14,10 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+$(document).ready(function() {
+    trueRandom();
+    cyclicRandom();
+});
 
 $(function() {
     $('#search').on('keyup', function() {
@@ -24,3 +28,43 @@ $(function() {
         }).show();
     });
 });
+
+trueRandom = function() {
+    $('#true-random').on('click', function() {
+        console.log("clicked");
+        $.ajax({
+                url: '/teachers/' + $('#teacher_id').val() + '/classrooms/' + $('#classroom_id').val(),
+                method: 'GET'
+            })
+            .done(function(response) {
+                console.log(response);
+                $('#true-random-student').empty()
+                $('#true-random-student').html(response)
+            })
+    })
+}
+
+
+cyclicRandom = function() {
+  var studentsString = $('#students').val()
+  var students = studentsString.substr(0, studentsString.length - 2).substr(2).split('", "')
+  var students = students.shuffle()
+    $('#cyclic-random').on('click', function() {
+      var students = this.students
+        console.log("clicked");
+        $('#cyclic-random-student').empty()
+        $('#cyclic-random-student').html(students[0])
+        var students = students.splice(0, 1)
+    })
+}
+
+Array.prototype.shuffle = function() {
+    var input = this;
+    for (var i = input.length - 1; i >= 0; i--) {
+        var randomIndex = Math.floor(Math.random() * (i + 1));
+        var itemAtIndex = input[randomIndex];
+        input[randomIndex] = input[i];
+        input[i] = itemAtIndex;
+    }
+    return input;
+}
