@@ -3,6 +3,7 @@ class TeamsController < ApplicationController
     @classroom = Classroom.find(params[:classroom_id])
   end
   def create
+    p params
     @number = params[:teams].to_i
     @students = []
     Classroom.find(params[:classroom]).students.each do |student|

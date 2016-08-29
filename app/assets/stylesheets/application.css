@@ -11,25 +11,14 @@
  * It is generally better to create a new file per style scope.
  **/
 
-
- .form-group input[type="checkbox"] {
-     display: none;
+ .searchable-container{margin:20px 0 0 0}
+ .searchable-container label.btn-default.active{background-color:#007ba7;color:#FFF}
+ .searchable-container label.btn-default{width:90%;border:1px solid #efefef;margin:5px; box-shadow:5px 8px 8px 0 #ccc;}
+ .searchable-container label .bizcontent{width:100%;}
+ .searchable-container .btn-group{width:90%}
+ .searchable-container .btn span.glyphicon{
+     opacity: 0;
  }
-
- .form-group input[type="checkbox"] + .btn-group > label span {
-     width: 20px;
- }
-
- .form-group input[type="checkbox"] + .btn-group > label span:first-child {
-     display: none;
- }
- .form-group input[type="checkbox"] + .btn-group > label span:last-child {
-     display: inline-block;
- }
-
- .form-group input[type="checkbox"]:checked + .btn-group > label span:first-child {
-     display: inline-block;
- }
- .form-group input[type="checkbox"]:checked + .btn-group > label span:last-child {
-     display: none;
+ .searchable-container .btn.active span.glyphicon {
+     opacity: 1;
  }
