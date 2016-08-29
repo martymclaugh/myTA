@@ -36,7 +36,6 @@ trueRandom = function(){
       method: 'GET'
     })
     .done(function(response){
-      console.log("back");
       console.log(response);
       $('#true-random-student').empty()
       $('#true-random-student').html(response)

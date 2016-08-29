@@ -12,9 +12,9 @@ class ClassroomsController < ApplicationController
 
   def show
     @classroom = Classroom.find(params[:id])
-    p "hiddddfanwoefinaweionawoeinafweoin"
     if request.xhr?
-      render template: 'classrooms/_true_random', layout: false
+      p "hiddddfanwoefinaweionawoe  inafweoin"
+      render template: 'classrooms/_true_random.html.erb', layout: false
     end
   end
 
