@@ -11,61 +11,96 @@
     <button type="submit" class="btn btn-success btn">View Teams</button><br>
 </form>
 <% end %>
+<% else %>
+<p>
+    You need at least 4 students to create teams
+</p>
 <% end %>
+
 <div class="container">
-    <div class="modal fade" id="Teams" role="dialog">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header center" style="padding:35px 50px;">
-                    <button type="button" class="close white" data-dismiss="modal">&times;</button>
-                    <h1 class="modal-title">Teams</h1>
-                </div>
-                <div class="modal-body">
-                    You have
-                    <%= @classroom.students.count %>
-                    students
-                    <form role="form" action="/teachers/<%= @classroom.teacher.id %>/classrooms/<%= @classroom.id %>/teams" method="post">
+    <div class="[ col-xs-12 col-sm-6 ]">
+        <h2>Students:</h2>
+        <div class="form-group">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <input type="search" class="form-control" id="search" placeholder="Student Search">
+            </div>
+        </div>
+            <h3>
+              <form role="form" action="/teachers/<%= @classroom.teacher.id %>/classrooms/<%= @classroom.id %>/teams" method="post">
+              <% @classroom.students.each do |student| %>
+                <div class="container" style="position:relative;">
+                    <div class="row"></div>
+                    <div class="row">
                         <div class="form-group">
-                            <label for="teams">
-                                How many teams would you like?</label>
-                            <input type="text" class="form-control" id="teams" name="teams" placeholder="enter number">
-                            <input type="hidden" class="form-control" id="class-name" name="classroom" value="<%= @classroom.id %>">
+                            <div class="searchable-container">
+                                <div class="items col-xs-5 col-sm-5 col-md-3 col-lg-3">
+                                    <div class="info-block block-info clearfix">
+                                        <div data-toggle="buttons" class="btn-group bizmoduleselect">
+                                            <label class="btn btn-default active">
+                                                <div style="width:auto;" class="bizcontent">
+                                                    <input checked="checked" type="checkbox" name="form[student_ids][<%= student.id %>]" autocomplete="off" value="<%= student.id %>">
+                                                    <span class="glyphicon glyphicon-ok glyphicon-lg"></span>
+                                                    <h5><%= student.name %></h5>
+                                                </div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <button type="submit" class="btn btn-success btn-block">Create Teams</button><br>
-                    </form>
+                    </div>
+                </div>
+            </h3>
+
+            <% end %>
+    </div>
+    <div class="container">
+        <div class="modal fade" id="Teams" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header center" style="padding:35px 50px;">
+                        <button type="button" class="close white" data-dismiss="modal">&times;</button>
+                        <h1 class="modal-title">Teams</h1>
+                    </div>
+                    <div class="modal-body">
+                        You have
+                        <%= @classroom.students.count %>
+                        students
+<div class="form-group">
+    <label for="teams">
+        How many teams would you like?</label>
+    <input type="text" style="width:20%" class="form-control" id="teams" name="teams" placeholder="enter number">
+    <input type="hidden" class="form-control" id="class-name" name="classroom" value="<%= @classroom.id %>">
+</div>
+<button type="submit" class="btn btn-success btn">Create Teams</button><br>
+</form>
+
+
+
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<h2>Students:</h2>
-<% @classroom.students.each do |student| %>
-<h3>
-<li><%= student.name %>
-    <% if student.absences.last.absence == true %>
-    <form style="display:inline;" action="/teachers/<%= params[:teacher_id] %>/classrooms/<%= @classroom.id %>/students/<%= student.id %>/absences" method="patch">
-        <button type="submit" class="btn btn-success btn">Here</button>
-    </form>
-    <% end %>
-</li>
-</h3>
 
-<% end %>
+
+</div>
+</div>
 <form role="form" action="/teachers/<%= params[:id] %>/classrooms/<%= @classroom.id %>/students" method="post">
 <div class="form-group">
-    <label for="student-name">
-        Student Name:</label>
-    <input style="width: 20%" type="text" class="form-control" id="student-name" name="name" placeholder="Marty, Max, Andy...">
+<label for="student-name">
+    Student Name:</label>
+<input style="width: 20%" type="text" class="form-control" id="student-name" name="name" placeholder="Marty, Max, Andy...">
+<button type="submit" style="display:inline;"class="btn btn-success btn">Add Student</button><br>
 </div>
-<button type="submit" class="btn btn-success btn">Add Student</button><br>
 </form>
 <% end %>
 <% end %>
-
 <% if !logged_in? %>
 <% @classroom.students.each do |student| %>
 <h3>
 <li><%= student.name %>
 </li>
 </h3>
+<% end %>
 <% end %>
