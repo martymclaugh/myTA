@@ -6,15 +6,15 @@
 <% if @classroom.teacher_id == current_user.id %>
 <% if @classroom.students.count > 3 %>
 <button type="submit" class="btn btn-success btn" data-toggle="modal" data-target="#Teams">Create New Teams</button>
-  <% if @classroom.teams.present? %>
-  <form action="/teachers/<%= params[:teacher_id] %>/classrooms/<%= params[:id] %>/teams">
-      <button type="submit" class="btn btn-success btn">View Teams</button><br>
-  </form>
-  <% end %>
-  <% else %>
-  <p>
+<% if @classroom.teams.present? %>
+<form action="/teachers/<%= params[:teacher_id] %>/classrooms/<%= params[:id] %>/teams">
+    <button type="submit" class="btn btn-success btn">View Teams</button><br>
+</form>
+<% end %>
+<% else %>
+<p>
     You need at least 4 students to create teams
-  </p>
+</p>
 <% end %>
 <div class="container">
     <div class="modal fade" id="Teams" role="dialog">
@@ -43,24 +43,38 @@
         </div>
     </div>
 </div>
-<h2>Students:</h2>
-<% @classroom.students.each do |student| %>
-<h3>
-<li><%= student.name %>
-    <% if student.absences.last.absence == true %>
-    <form style="display:inline;" action="/teachers/<%= params[:teacher_id] %>/classrooms/<%= @classroom.id %>/students/<%= student.id %>/absences" method="patch">
-        <button type="submit" class="btn btn-success btn">Here</button>
-    </form>
-    <% end %>
-</li>
-</h3>
 
-<% end %>
+<div class="container">
+    <div class="[ col-xs-12 col-sm-6 ]">
+        <h2>Students:</h2>
+        <% @classroom.students.each do |student| %>
+        <h3>
+        <li>
+            <div class="[ form-group ]">
+                <input type="checkbox" name="fancy-checkbox-success" id="fancy-checkbox-success" autocomplete="off"/>
+                <div class="[ btn-group ]">
+                    <label for="fancy-checkbox-success" class="[ btn btn-success ]">
+                        <span class="[ glyphicon glyphicon-ok ]"></span>
+                        <span></span>
+                    </label>
+                    <label for="fancy-checkbox-success" class="[ btn btn-default active ]">
+                        <%= student.name %>
+                    </label>
+                </div>
+            </div>
+        </li>
+    </h3>
+
+    <% end %>
+</div>
+
+</div>
+</div>
 <form role="form" action="/teachers/<%= params[:id] %>/classrooms/<%= @classroom.id %>/students" method="post">
 <div class="form-group">
-    <label for="student-name">
-        Student Name:</label>
-    <input style="width: 20%" type="text" class="form-control" id="student-name" name="name" placeholder="Marty, Max, Andy...">
+<label for="student-name">
+    Student Name:</label>
+<input style="width: 20%" type="text" class="form-control" id="student-name" name="name" placeholder="Marty, Max, Andy...">
 </div>
 <button type="submit" class="btn btn-success btn">Add Student</button><br>
 </form>
