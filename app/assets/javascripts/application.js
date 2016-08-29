@@ -21,7 +21,7 @@ $( document ).ready(function() {
   var students = studentsString.substr(0, studentsString.length - 2).substr(2).split('", "')
 
   console.log(students);
-  console.log(shuffle(students));
+  console.log(students.shuffle());
 });
 
 $(function() {
@@ -63,12 +63,13 @@ trueRandom = function(){
 //   })
 // }
 
-function shuffle(a) {
-    var j, x, i;
-    for (i = a.length; i; i--) {
-        j = Math.floor(Math.random() * i);
-        x = a[i - 1];
-        a[i - 1] = a[j];
-        a[j] = x;
+Array.prototype.shuffle = function() {
+    var input = this;
+    for (var i = input.length-1; i >=0; i--) {
+        var randomIndex = Math.floor(Math.random()*(i+1));
+        var itemAtIndex = input[randomIndex];
+        input[randomIndex] = input[i];
+        input[i] = itemAtIndex;
     }
+    return input;
 }
