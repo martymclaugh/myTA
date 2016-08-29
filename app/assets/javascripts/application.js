@@ -16,7 +16,12 @@
 //= require_tree .
 $( document ).ready(function() {
   trueRandom();
-  cyclicRandom();
+  // cyclicRandom();
+  var studentsString = $('#students').val()
+  var students = studentsString.substr(0, studentsString.length - 2).substr(2).split('", "')
+
+  console.log(students);
+  console.log(shuffle(students));
 });
 
 $(function() {
@@ -43,18 +48,27 @@ trueRandom = function(){
     })
   })
 }
+// cyclicRandom = function(){
+//   $('#cyclic-random').on('click', function(){
+//     // console.log("clicked");
+//     // $.ajax({
+//     //   url: '/teachers/'+ $('#teacher_id').val() + '/classrooms/' + $('#classroom_id').val() + '/students',
+//     //   method: 'GET'
+//     // })
+//     // .done(function(response){
+//     //   console.log(response);
+//     //   $('#cyclic-random-student').empty()
+//     //   $('#cyclic-random-student').html(response)
+//     // })
+//   })
+// }
 
-cyclicRandom = function(){
-  $('#cyclic-random').on('click', function(){
-    console.log("clicked");
-    $.ajax({
-      url: '/teachers/'+ $('#teacher_id').val() + '/classrooms/' + $('#classroom_id').val() + '/students',
-      method: 'GET'
-    })
-    .done(function(response){
-      console.log(response);
-      $('#cyclic-random-student').empty()
-      $('#cyclic-random-student').html(response)
-    })
-  })
+function shuffle(a) {
+    var j, x, i;
+    for (i = a.length; i; i--) {
+        j = Math.floor(Math.random() * i);
+        x = a[i - 1];
+        a[i - 1] = a[j];
+        a[j] = x;
+    }
 }
