@@ -14,6 +14,9 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+$( document ).ready(function() {
+  trueRandom()
+});
 
 $(function() {
     $('#search').on('keyup', function() {
@@ -24,3 +27,19 @@ $(function() {
         }).show();
     });
 });
+
+trueRandom = function(){
+  $('#true-random').on('click', function(){
+    console.log("clicked");
+    $.ajax({
+      url: '/teachers/'+ $('#teacher_id').val() + '/classrooms/' + $('#classroom_id').val(),
+      method: 'GET'
+    })
+    .done(function(response){
+      console.log("back");
+      console.log(response);
+      $('#true-random-student').empty()
+      $('#true-random-student').html(response)
+    })
+  })
+}

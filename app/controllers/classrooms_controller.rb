@@ -1,4 +1,5 @@
 class ClassroomsController < ApplicationController
+  helper_method :true_random_student
   def index
   end
 
@@ -11,12 +12,21 @@ class ClassroomsController < ApplicationController
 
   def show
     @classroom = Classroom.find(params[:id])
+    p "hiddddfanwoefinaweionawoeinafweoin"
+    if request.xhr?
+      render template: 'classrooms/_true_random', layout: false
+    end
   end
 
   def destroy
-    p params
     @classroom = Classroom.find(params[:id])
     @classroom.destroy
     redirect_to "/teachers/#{params[:teacher_id]}"
+  end
+
+  private
+
+  def true_random_student
+    @classroom.students.sample.name
   end
 end

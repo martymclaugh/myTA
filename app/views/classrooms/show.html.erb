@@ -16,7 +16,10 @@
     You need at least 4 students to create teams
 </p>
 <% end %>
-<button type="submit" class="btn btn-success btn" data-toggle="modal" data-target="#TrueRandom">Random Student(True)</button>
+<input id="classroom_id" type="hidden" value="<%= @classroom.id %>">
+<input id="teacher_id" type="hidden" value="<%= @classroom.teacher.id %>">
+
+<button id="true-random" type="submit" class="btn btn-success btn" data-toggle="modal" data-target="#TrueRandom">Random Student(True)</button>
 <div class="container">
     <div class="modal fade" id="TrueRandom" role="dialog">
         <div class="modal-dialog">
@@ -26,11 +29,11 @@
                     <h1 class="modal-title">The Lucky Student Is:</h1>
                 </div>
                 <div class="modal-body">
-                  <% @classroom.students.each do |student| %>
+                    <h2 id = "true-random-student"></h2>
+                </div>
             </div>
         </div>
     </div>
-</div>
 </div>
 <button type="submit" class="btn btn-success btn">Random Student (Cyclic)</button><br>
 <div class="container">
