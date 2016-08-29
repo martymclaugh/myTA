@@ -15,7 +15,8 @@
 //= require turbolinks
 //= require_tree .
 $( document ).ready(function() {
-  trueRandom()
+  trueRandom();
+  cyclicRandom();
 });
 
 $(function() {
@@ -39,6 +40,21 @@ trueRandom = function(){
       console.log(response);
       $('#true-random-student').empty()
       $('#true-random-student').html(response)
+    })
+  })
+}
+
+cyclicRandom = function(){
+  $('#cyclic-random').on('click', function(){
+    console.log("clicked");
+    $.ajax({
+      url: '/teachers/'+ $('#teacher_id').val() + '/classrooms/' + $('#classroom_id').val() + '/students',
+      method: 'GET'
+    })
+    .done(function(response){
+      console.log(response);
+      $('#cyclic-random-student').empty()
+      $('#cyclic-random-student').html(response)
     })
   })
 }

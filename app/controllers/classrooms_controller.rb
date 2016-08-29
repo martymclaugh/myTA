@@ -13,7 +13,6 @@ class ClassroomsController < ApplicationController
   def show
     @classroom = Classroom.find(params[:id])
     if request.xhr?
-      p "hiddddfanwoefinaweionawoe  inafweoin"
       render template: 'classrooms/_true_random.html.erb', layout: false
     end
   end
@@ -22,11 +21,5 @@ class ClassroomsController < ApplicationController
     @classroom = Classroom.find(params[:id])
     @classroom.destroy
     redirect_to "/teachers/#{params[:teacher_id]}"
-  end
-
-  private
-
-  def true_random_student
-    @classroom.students.sample.name
   end
 end
