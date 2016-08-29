@@ -44,15 +44,17 @@ trueRandom = function() {
     })
 }
 
+
 cyclicRandom = function() {
   var studentsString = $('#students').val()
-  var studentsArray = studentsString.substr(0, studentsString.length - 2).substr(2).split('", "')
-  var studentsArray = studentsArray.shuffle()
+  var students = studentsString.substr(0, studentsString.length - 2).substr(2).split('", "')
+  var students = students.shuffle()
     $('#cyclic-random').on('click', function() {
+      var students = this.students
         console.log("clicked");
         $('#cyclic-random-student').empty()
-        $('#cyclic-random-student').html(studentsArray[0])
-        var studentsArray = studentsArray.splice(0, 1)
+        $('#cyclic-random-student').html(students[0])
+        var students = students.splice(0, 1)
     })
 }
 
