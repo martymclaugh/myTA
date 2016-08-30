@@ -42,3 +42,11 @@ body {
     background-repeat: no-repeat !important;
     background-attachment: fixed;
 }
+
+.dropdown-toggle {
+  color: white;
+}
+.dropdown-toggle:hover {
+  text-decoration: none;
+  color: gray;
+}
