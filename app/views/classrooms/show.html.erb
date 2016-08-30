@@ -16,13 +16,12 @@
     You need at least 4 students to create teams
 </p>
 <% end %>
-<div class="btn-group btn-toggle">
-    Randomization: <button class="btn btn-xs btn-primary active">Cyclic</button>
-     <button class="btn btn-xs btn-default">True</button>
-     </div>
+
 <input id="classroom_id" type="hidden" value="<%= @classroom.id %>">
 <input id="teacher_" type="hidden" value="<%= @classroom.teacher.id %>">
 <input id="students" type="hidden" value="<%= @students %>">
+<input class="random-toggle" type="checkbox" checked data-toggle="toggle" data-size="large" data-on="True Random" data-off="Cyclic Random">
+<button style="display:none;" id="cyclic-random" type="submit" class="btn btn-success btn" data-toggle="modal" data-target="#CyclicRandom">Random Student(cyclic)</button>
 <button id="true-random" type="submit" class="btn btn-success btn" data-toggle="modal" data-target="#TrueRandom">Random Student(True)</button>
 <div class="container">
     <div class="modal fade" id="TrueRandom" role="dialog">
@@ -39,8 +38,6 @@
         </div>
     </div>
 </div>
-
-<button id="cyclic-random" type="submit" class="btn btn-success btn" data-toggle="modal" data-target="#CyclicRandom">Random Student(cyclic)</button>
 <div class="container">
     <div class="modal fade" id="CyclicRandom" role="dialog">
         <div class="modal-dialog">
