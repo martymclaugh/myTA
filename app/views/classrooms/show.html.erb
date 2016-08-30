@@ -16,6 +16,10 @@
     You need at least 4 students to create teams
 </p>
 <% end %>
+<div class="btn-group btn-toggle">
+    Randomization: <button class="btn btn-xs btn-primary active">Cyclic</button>
+     <button class="btn btn-xs btn-default">True</button>
+     </div>
 <input id="classroom_id" type="hidden" value="<%= @classroom.id %>">
 <input id="teacher_" type="hidden" value="<%= @classroom.teacher.id %>">
 <input id="students" type="hidden" value="<%= @students %>">
