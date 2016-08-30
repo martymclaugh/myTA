@@ -6,10 +6,10 @@
         <% if logged_in? %>
         <% if @classroom.teacher_id == current_user.id %>
         <% if @classroom.students.count > 3 %>
-        <button type="submit" class="btn btn-primary btn" data-toggle="modal" data-target="#Teams">Create New Teams</button>
+        <button style="width: 100%" type="submit" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#Teams">Create New Teams</button>
         <% if @classroom.teams.present? %>
         <form action="/teachers/<%= params[:teacher_id] %>/classrooms/<%= params[:id] %>/teams">
-          <button type="submit" class="btn btn-primary btn">View Teams</button><br>
+          <button style="width: 100%" type="submit" class="btn btn-primary btn-lg">View Teams</button><br>
         </form>
         <% end %>
         <% else %>
@@ -26,16 +26,16 @@
           <input id="teacher_" type="hidden" value="<%= @classroom.teacher.id %>">
           <input id="students" type="hidden" value="<%= @students %>">
           <div class="random-toggle">
-            <input type="checkbox" checked data-toggle="toggle" data-size="large" data-on="True Random" data-off="Cyclic Random">
+            <input style="padding-left:30%" type="checkbox" checked data-toggle="toggle" data-size="large" data-on="True Random" data-off="Cyclic Random">
           </div>
-          <button style="display:none;" id="cyclic-random" type="submit" class="btn btn-primary btn" data-toggle="modal" data-target="#CyclicRandom">Random Student (Cyclic)</button>
-          <button id="true-random" type="submit" class="btn btn-primary btn" data-toggle="modal" data-target="#TrueRandom">Random Student (True)</button>
+          <button style="display:none; width: 100%;" id="cyclic-random" type="submit" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#CyclicRandom">Random Student (Cyclic)</button>
+          <button id="true-random" style="width: 100%" type="submit" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#TrueRandom">Random Student (True)</button>
           <form role="form" action="/teachers/<%= params[:id] %>/classrooms/<%= @classroom.id %>/students" method="post">
             <div class="form-group">
               <label for="student-name">
                 Student Name:</label>
                 <input style="width: 100%" type="text" class="form-control" id="student-name" name="name" placeholder="Marty, Max, Andy...">
-                <button type="submit" style="display:inline;" class="btn btn-success btn">Add Student</button><br>
+                <button type="submit" style="display:inline;" class="btn btn-primary btn-lg">Add Student</button><br>
               </div>
             </form>
       </nav>
