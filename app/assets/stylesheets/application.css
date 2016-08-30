@@ -53,3 +53,20 @@ body {
 .dropdown-menu {
   width:100%;
 }
+
+.profile {
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    top:20vh;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+.links {
+  color: white;
+}
+.links:hover {
+  text-decoration: none;
+  color: gray;
+}
