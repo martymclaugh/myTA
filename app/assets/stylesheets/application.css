@@ -22,3 +22,34 @@
  .searchable-container .btn.active span.glyphicon {
      opacity: 1;
  }
+
+#nav-bar-right {
+  position:fixed;
+  margin-top: -20px;
+  margin-right: -20px;
+}
+
+.random-toggle {
+  top: -50px;
+}
+
+body {
+    background-image: url('http://partysaints.co.uk/wp-content/uploads/2016/07/background-for-website.jpg');
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: top center !important;
+    background-repeat: no-repeat !important;
+    background-attachment: fixed;
+}
+
+.dropdown-toggle {
+  color: white;
+}
+.dropdown-toggle:hover {
+  text-decoration: none;
+  color: gray;
+}
+.dropdown-menu {
+  width:100%;
+}

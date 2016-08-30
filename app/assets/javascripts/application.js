@@ -17,6 +17,7 @@
 $(document).ready(function() {
     trueRandom();
     cyclicRandom();
+    toggleRandom();
 });
 
 $(function() {
@@ -44,17 +45,23 @@ trueRandom = function() {
     })
 }
 
+toggleRandom = function() {
+  $('.random-toggle').on('click', function(){
+    console.log("Clicked!");
+    $('#true-random').toggle()
+    $('#cyclic-random').toggle()
+  })
+}
 
 cyclicRandom = function() {
   var studentsString = $('#students').val()
-  var students = studentsString.substr(0, studentsString.length - 2).substr(2).split('", "')
-  var students = students.shuffle()
+  var students = studentsString.substr(0, studentsString.length - 2).substr(2).split('", "').shuffle()
+  students.push("All students have been called. Refresh page to start over.")
     $('#cyclic-random').on('click', function() {
-      var students = this.students
-        console.log("clicked");
+        console.log(students);
         $('#cyclic-random-student').empty()
         $('#cyclic-random-student').html(students[0])
-        var students = students.splice(0, 1)
+        students.splice(0, 1)
     })
 }
 
