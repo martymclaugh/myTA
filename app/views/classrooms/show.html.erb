@@ -1,21 +1,30 @@
-<h1><%= @classroom.teacher.name.capitalize %>'s
-    <%= @classroom.name.capitalize %>
-    Class</h1>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-3 col-lg-2 col-sm-push-9 col-lg-push-10">
+      <nav style="height:100vh"class="navbar navbar-default navbar-fixed-side navbar-inverse">
+        <!-- normal collapsable navbar markup -->
+        <% if logged_in? %>
+        <% if @classroom.teacher_id == current_user.id %>
+        <% if @classroom.students.count > 3 %>
+        <button type="submit" class="btn btn-success btn" data-toggle="modal" data-target="#Teams">Create New Teams</button>
+        <% if @classroom.teams.present? %>
+        <form action="/teachers/<%= params[:teacher_id] %>/classrooms/<%= params[:id] %>/teams">
+          <button type="submit" class="btn btn-success btn">View Teams</button><br>
+        </form>
+        <% end %>
+        <% else %>
+        <!-- your page content -->
+        <h1><%= @classroom.teacher.name.capitalize %>'s
+          <%= @classroom.name.capitalize %>
+          Class</h1>
 
-<% if logged_in? %>
-<% if @classroom.teacher_id == current_user.id %>
-<% if @classroom.students.count > 3 %>
-<button type="submit" class="btn btn-success btn" data-toggle="modal" data-target="#Teams">Create New Teams</button>
-<% if @classroom.teams.present? %>
-<form action="/teachers/<%= params[:teacher_id] %>/classrooms/<%= params[:id] %>/teams">
-    <button type="submit" class="btn btn-success btn">View Teams</button><br>
-</form>
-<% end %>
-<% else %>
-<p>
-    You need at least 4 students to create teams
-</p>
-<% end %>
+          <p>
+            You need at least 4 students to create teams
+          </p>
+          <% end %>
+      </nav>
+    </div>
+    <div class="col-sm-9 col-lg-10 col-sm-pull-3 col-lg-pull-2">
 
 <input id="classroom_id" type="hidden" value="<%= @classroom.id %>">
 <input id="teacher_" type="hidden" value="<%= @classroom.teacher.id %>">
@@ -139,3 +148,6 @@
 </h3>
 <% end %>
 <% end %>
+</div>
+</div>
+</div>
