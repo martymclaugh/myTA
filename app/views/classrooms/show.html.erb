@@ -102,12 +102,9 @@
                 <h3>
                     <form role="form" action="/teachers/<%= @classroom.teacher.id %>/classrooms/<%= @classroom.id %>/teams" method="post">
                         <% @classroom.students.each do |student| %>
-                        <div class="container student-name" style="position:relative;">
-                            <div class="row"></div>
-                            <div class="row">
+                        <div class="container student-name" style="position:relative; width:400px;">
                                 <div class="form-group">
                                     <div class="searchable-container">
-                                        <div class="items col-xs-5 col-sm-5 col-md-3 col-lg-3">
                                             <div class="info-block block-info clearfix">
                                                 <div data-toggle="buttons" class="btn-group bizmoduleselect">
                                                     <label class="btn btn-default active">
@@ -118,8 +115,6 @@
                                                         </div>
                                                     </label>
                                                 </div>
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
