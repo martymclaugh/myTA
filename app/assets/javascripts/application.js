@@ -17,6 +17,7 @@
 $(document).ready(function() {
     trueRandom();
     cyclicRandom();
+    toggleRandom();
 });
 
 $(function() {
@@ -44,6 +45,13 @@ trueRandom = function() {
     })
 }
 
+toggleRandom = function() {
+  $('.random-toggle').on('click', function(){
+    console.log("Clicked!");
+    $('#true-random').toggle()
+    $('#cyclic-random').toggle()
+  })
+}
 
 cyclicRandom = function() {
   var studentsString = $('#students').val()

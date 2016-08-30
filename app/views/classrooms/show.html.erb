@@ -20,9 +20,11 @@
 <input id="classroom_id" type="hidden" value="<%= @classroom.id %>">
 <input id="teacher_" type="hidden" value="<%= @classroom.teacher.id %>">
 <input id="students" type="hidden" value="<%= @students %>">
-<input class="random-toggle" type="checkbox" checked data-toggle="toggle" data-size="large" data-on="True Random" data-off="Cyclic Random">
-<button style="display:none;" id="cyclic-random" type="submit" class="btn btn-success btn" data-toggle="modal" data-target="#CyclicRandom">Random Student(cyclic)</button>
-<button id="true-random" type="submit" class="btn btn-success btn" data-toggle="modal" data-target="#TrueRandom">Random Student(True)</button>
+<div class="random-toggle">
+<input type="checkbox" checked data-toggle="toggle" data-size="large" data-on="True Random" data-off="Cyclic Random">
+</div>
+<button style="display:none;" id="cyclic-random" type="submit" class="btn btn-success btn" data-toggle="modal" data-target="#CyclicRandom">Random Student (Cyclic)</button>
+<button id="true-random" type="submit" class="btn btn-success btn" data-toggle="modal" data-target="#TrueRandom">Random Student (True)</button>
 <div class="container">
     <div class="modal fade" id="TrueRandom" role="dialog">
         <div class="modal-dialog">
