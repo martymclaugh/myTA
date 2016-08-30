@@ -24,7 +24,7 @@
  }
 
 #nav-bar-right {
-  z-index: 1;
+  position:fixed;
   margin-top: -20px;
   margin-right: -20px;
 }
