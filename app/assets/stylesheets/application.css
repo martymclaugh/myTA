@@ -22,3 +22,9 @@
  .searchable-container .btn.active span.glyphicon {
      opacity: 1;
  }
+
+#nav-bar-right {
+  z-index: 1;
+  margin-top: -20px;
+  margin-right: -20px;
+}

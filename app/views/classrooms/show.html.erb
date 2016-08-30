@@ -1,15 +1,15 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-sm-3 col-lg-2 col-sm-push-9 col-lg-push-10">
-      <nav style="height:100vh"class="navbar navbar-default navbar-fixed-side navbar-inverse">
+      <nav style="height:100vh" id="nav-bar-right" class="navbar navbar-default navbar-fixed-side navbar-inverse">
         <!-- normal collapsable navbar markup -->
         <% if logged_in? %>
         <% if @classroom.teacher_id == current_user.id %>
         <% if @classroom.students.count > 3 %>
-        <button type="submit" class="btn btn-success btn" data-toggle="modal" data-target="#Teams">Create New Teams</button>
+        <button type="submit" class="btn btn-primary btn" data-toggle="modal" data-target="#Teams">Create New Teams</button>
         <% if @classroom.teams.present? %>
         <form action="/teachers/<%= params[:teacher_id] %>/classrooms/<%= params[:id] %>/teams">
-          <button type="submit" class="btn btn-success btn">View Teams</button><br>
+          <button type="submit" class="btn btn-primary btn">View Teams</button><br>
         </form>
         <% end %>
         <% else %>
@@ -22,18 +22,26 @@
             You need at least 4 students to create teams
           </p>
           <% end %>
+          <input id="classroom_id" type="hidden" value="<%= @classroom.id %>">
+          <input id="teacher_" type="hidden" value="<%= @classroom.teacher.id %>">
+          <input id="students" type="hidden" value="<%= @students %>">
+          <div class="random-toggle">
+            <input type="checkbox" checked data-toggle="toggle" data-size="large" data-on="True Random" data-off="Cyclic Random">
+          </div>
+          <button style="display:none;" id="cyclic-random" type="submit" class="btn btn-primary btn" data-toggle="modal" data-target="#CyclicRandom">Random Student (Cyclic)</button>
+          <button id="true-random" type="submit" class="btn btn-primary btn" data-toggle="modal" data-target="#TrueRandom">Random Student (True)</button>
+          <form role="form" action="/teachers/<%= params[:id] %>/classrooms/<%= @classroom.id %>/students" method="post">
+            <div class="form-group">
+              <label for="student-name">
+                Student Name:</label>
+                <input style="width: 100%" type="text" class="form-control" id="student-name" name="name" placeholder="Marty, Max, Andy...">
+                <button type="submit" style="display:inline;" class="btn btn-success btn">Add Student</button><br>
+              </div>
+            </form>
       </nav>
     </div>
     <div class="col-sm-9 col-lg-10 col-sm-pull-3 col-lg-pull-2">
 
-<input id="classroom_id" type="hidden" value="<%= @classroom.id %>">
-<input id="teacher_" type="hidden" value="<%= @classroom.teacher.id %>">
-<input id="students" type="hidden" value="<%= @students %>">
-<div class="random-toggle">
-<input type="checkbox" checked data-toggle="toggle" data-size="large" data-on="True Random" data-off="Cyclic Random">
-</div>
-<button style="display:none;" id="cyclic-random" type="submit" class="btn btn-success btn" data-toggle="modal" data-target="#CyclicRandom">Random Student (Cyclic)</button>
-<button id="true-random" type="submit" class="btn btn-success btn" data-toggle="modal" data-target="#TrueRandom">Random Student (True)</button>
 <div class="container">
     <div class="modal fade" id="TrueRandom" role="dialog">
         <div class="modal-dialog">
@@ -87,7 +95,7 @@
                                                 <div style="width:auto;" class="bizcontent">
                                                     <input checked="checked" type="checkbox" name="form[student_ids][<%= student.id %>]" autocomplete="off" value="<%= student.id %>">
                                                     <span class="glyphicon glyphicon-ok glyphicon-lg"></span>
-                                                    <h5><%= student.name %></h5>
+                                                    <h4 style="letter-spacing: 2px;"><%= student.name %></h5>
                                                 </div>
                                             </label>
                                         </div>
@@ -130,14 +138,6 @@
 
 </div>
 </div>
-<form role="form" action="/teachers/<%= params[:id] %>/classrooms/<%= @classroom.id %>/students" method="post">
-<div class="form-group">
-    <label for="student-name">
-        Student Name:</label>
-    <input style="width: 20%" type="text" class="form-control" id="student-name" name="name" placeholder="Marty, Max, Andy...">
-    <button type="submit" style="display:inline;" class="btn btn-success btn">Add Student</button><br>
-</div>
-</form>
 <% end %>
 <% end %>
 <% if !logged_in? %>
