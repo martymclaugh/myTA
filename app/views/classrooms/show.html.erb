@@ -32,11 +32,7 @@
             <% end %>
         <% else %>
             <!-- your page content -->
-            <h2><%= @classroom.teacher.name.capitalize %>'s
-                <%= @classroom.name.capitalize %>
-                Class</h2>
-
-            <p>
+            <p class="white">
                 You need at least 4 students to create teams
             </p>
             <% end %>
@@ -103,8 +99,11 @@
                 </div>
             </div>
         </div>
+        <% if @classroom.students.count == 0 %>
+          <h2 class="white center instructions">View the nav bar on the right to add a student</h2>
+        <% end %>
         <div class="container students">
-            <h2 class="white center">Students:</h2>
+            <h2 class="white center home-content">Students:</h2>
             <div class="form-group">
                 <div class="col-sm-12 col-md-12 col-lg-12 students-search">
                     <input style="width: 30%;" type="search" class="form-control students-form center" id="search" placeholder="Student Search">
