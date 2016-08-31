@@ -11,7 +11,7 @@
  * It is generally better to create a new file per style scope.
  **/
 
- .searchable-container{margin:20px 0 0 0}
+ .searchable-container {margin:20px 0 0 0}
  .searchable-container label.btn-default.active{background-color:#007ba7;color:#FFF}
  .searchable-container label.btn-default{width:90%;border:1px solid #efefef;margin:5px; box-shadow:5px 8px 8px 0 #ccc;}
  .searchable-container label .bizcontent{width:100%;}
