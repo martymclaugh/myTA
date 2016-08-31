@@ -25,8 +25,9 @@
 
 #nav-bar-right {
   position:fixed;
-  margin-top: -20px;
-  margin-right: 0;
+  top: 0;
+  right: 0;
+  z-index: 2;
   float: right;
 }
 
