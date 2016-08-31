@@ -28,18 +28,20 @@
    position:fixed;
    z-index: 2;
  }
-
+.cyclic-random-button,
+.true-random-button {
+  width: 178px;
+  height:10vh;
+}
 #nav-bar-right {
   position:fixed;
   top: 50px;
   right: 0;
   z-index: 1;
   float: right;
+  outline: none;
 }
 
-.random-toggle {
-  top: -50px;
-}
 #cyclic-random {
   display:none;
   width: 100%;

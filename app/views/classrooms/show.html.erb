@@ -43,8 +43,17 @@
             <input id="classroom_id" type="hidden" value="<%= @classroom.id %>">
             <input id="teacher_" type="hidden" value="<%= @classroom.teacher.id %>">
             <input id="students" type="hidden" value="<%= @students %>">
-            <div class="random-toggle">
-                <input style="padding-left:30%; height:13vh;" type="checkbox" checked data-toggle="toggle" data-size="large" data-on="True Random" data-off="Cyclic Random" data-width="100%" data-height="500;">
+            <div style=class="random-toggle">
+                <div class="btn-group" data-toggle="buttons">
+                    <label class="btn btn-primary cyclic-random-button">
+                        <input type="radio" name="options" id="option2" autocomplete="off">
+                        Cyclic
+                    </label>
+                    <label class="btn btn-primary active true-random-button">
+                        <input type="radio" name="options" id="option3" autocomplete="off" checked>
+                        True
+                    </label>
+                </div>
             </div>
             <button id="cyclic-random" type="submit" class="btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#CyclicRandom">
                 <h2>Random Student (Cyclic)</h2>
@@ -107,8 +116,8 @@
                         <div class="form-group">
                             <div class="searchable-container">
                                 <div class="items">
-                                    <div class="info-block block-info clearfix" >
-                                        <div data-toggle="buttons" class="btn-group bizmoduleselect" >
+                                    <div class="info-block block-info clearfix">
+                                        <div data-toggle="buttons" class="btn-group bizmoduleselect">
                                             <label class="btn btn-default active" style="border: 2px solid black;">
                                                 <div style="width:auto;" class="bizcontent">
                                                     <input checked="checked" type="checkbox" name="form[student_ids][<%= student.id %>]" autocomplete="off" value="<%= student.id %>">
