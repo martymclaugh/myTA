@@ -28,6 +28,14 @@
    position:fixed;
    z-index: 2;
  }
+ .dropdown-arrow {
+   width: 5%;
+ }
+
+ .navbar-button {
+   width: 100%;
+   height: 15vh;
+ }
 .cyclic-random-button,
 .true-random-button {
   width: 186.9px;
@@ -35,6 +43,8 @@
 }
 #nav-bar-right {
   position:fixed;
+  height: 100vh;
+
   top: 50px;
   right: 0;
   z-index: 1;
@@ -58,8 +68,34 @@ body {
     background-attachment: fixed;
 }
 
+.dropdown {
+  width: 100%;
+  height: 5vh;
+}
+
 .dropdown-toggle {
   color: white;
+}
+
+.white {
+  color: white;
+}
+
+.bizcontent {
+  width: auto;
+}
+.students-form {
+  width: 30%;
+}
+
+.student-name {
+  letter-spacing: 2px;
+}
+.students-search {
+  left: 35%;
+}
+.modal-header {
+  padding:35px 50px;
 }
 .dropdown-toggle:hover {
   text-decoration: none;
@@ -69,6 +105,12 @@ body {
   width:100%;
 }
 
+.github-img {
+  width: 2%;
+}
+.center {
+  text-align: center;
+}
 .profile {
     width: 400px;
     height: 400px;
