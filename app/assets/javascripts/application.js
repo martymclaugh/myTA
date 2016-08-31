@@ -17,7 +17,8 @@
 $(document).ready(function() {
     trueRandom();
     cyclicRandom();
-    toggleRandom();
+    toggleTrueRandom();
+    toggleCyclicRandom();
 });
 
 $(function() {
@@ -45,11 +46,18 @@ trueRandom = function() {
     })
 }
 
-toggleRandom = function() {
-  $('.random-toggle').on('click', function(){
-    console.log("Clicked!");
-    $('#true-random').toggle()
-    $('#cyclic-random').toggle()
+toggleTrueRandom = function() {
+  $('.true-random-button').on('click', function(){
+    console.log("clicked true");
+    $('#true-random').show()
+    $('#cyclic-random').hide()
+  })
+}
+toggleCyclicRandom = function() {
+  $('.cyclic-random-button').on('click', function(){
+    console.log("clicked cyclic");
+    $('#cyclic-random').show()
+    $('#true-random').hide()
   })
 }
 
