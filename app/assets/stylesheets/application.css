@@ -11,7 +11,7 @@
  * It is generally better to create a new file per style scope.
  **/
  .navbar-text {
-   font-size: 1.5vw;
+   font-size: 1.2vw;
  }
 
  .searchable-container {
@@ -139,6 +139,7 @@ body {
 
 .student-name {
   letter-spacing: 2px;
+  font-size: 1vw
 }
 
 .students-search {
@@ -177,10 +178,10 @@ body {
 }
 
 .students {
-    width: 500px;
-    height: 800px;
+    width: 40vw;
+    height: 80vh;
     position: absolute;
-    top:20vh;
+    top:15vh;
     left: 0;
     right: 0;
     margin: auto;

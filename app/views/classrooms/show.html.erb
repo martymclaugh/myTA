@@ -78,7 +78,7 @@
                             <h1 class="modal-title" style="text-align:center;">The Lucky Student Is:</h1>
                         </div>
                         <div class="modal-body">
-                            <h2 id="true-random-student"></h2>
+                            <h2 id="true-random-student" class="center"></h2>
                         </div>
                     </div>
                 </div>
@@ -102,7 +102,7 @@
         <% if @classroom.students.count == 0 %>
           <h2 class="white center instructions">View the nav bar on the right to add a student</h2>
         <% end %>
-        <div class="container students">
+        <div class="students">
             <h2 class="white center home-content">Students:</h2>
             <div class="form-group">
                 <div class="col-sm-12 col-md-12 col-lg-12 students-search">
@@ -112,13 +112,13 @@
             <h3>
                 <form role="form" action="/teachers/<%= @classroom.teacher.id %>/classrooms/<%= @classroom.id %>/teams" method="post">
                     <% @classroom.students.each do |student| %>
-                    <div class="container student-name" style="position:relative; width:500px;">
+                    <div class="container student-name" style="position:relative; width:100%;">
                         <div class="form-group">
                             <div class="searchable-container">
                                 <div class="items">
                                     <div class="info-block block-info clearfix">
                                         <div data-toggle="buttons" class="btn-group bizmoduleselect">
-                                            <label class="btn btn-default active biz center" style="border: 2px solid black;">
+                                            <label class="btn btn-default active biz center" style="width: 50%; border: 2px solid black;">
                                                 <div class="bizcontent center">
                                                     <input checked="checked" type="checkbox" name="form[student_ids][<%= student.id %>]" autocomplete="off" value="<%= student.id %>">
                                                     <span class="glyphicon glyphicon-ok glyphicon-lg"></span><br>
