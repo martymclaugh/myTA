@@ -15,10 +15,10 @@
 //= require turbolinks
 //= require_tree .
 $(document).ready(function() {
-    trueRandom();
-    cyclicRandom();
     toggleTrueRandom();
     toggleCyclicRandom();
+    trueRandom();
+    cyclicRandom();
 });
 
 $(function() {
@@ -48,14 +48,12 @@ trueRandom = function() {
 
 toggleTrueRandom = function() {
   $('.true-random-button').on('click', function(){
-    console.log("clicked true");
     $('#true-random').show()
     $('#cyclic-random').hide()
   })
 }
 toggleCyclicRandom = function() {
   $('.cyclic-random-button').on('click', function(){
-    console.log("clicked cyclic");
     $('#cyclic-random').show()
     $('#true-random').hide()
   })
