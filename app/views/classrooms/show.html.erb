@@ -119,8 +119,8 @@
                                     <div class="info-block block-info clearfix">
                                         <div data-toggle="buttons" class="btn-group bizmoduleselect">
                                             <label class="btn btn-default active biz center" style="width: 50%; border: 2px solid black;">
-                                                <div class="bizcontent center">
-                                                    <input checked="checked" type="checkbox" name="form[student_ids][<%= student.id %>]" autocomplete="off" value="<%= student.id %>">
+                                                <div id="<%= student.id %>"class="bizcontent center">
+                                                    <input checked="checked" type="checkbox" name="form[student_ids][<%= student.id %>]" a utocomplete="off" value="<%= student.id %>">
                                                     <span class="glyphicon glyphicon-ok glyphicon-lg"></span><br>
                                                     <h4 class="student-name center"><%= student.name %></h4>
                                                 </div>
@@ -131,6 +131,13 @@
                             </div>
                         </div>
                     </div>
+                    <% if student.absences.last.absence == true %>
+                    <script>
+                      jQuery(function(){
+                         jQuery('#<%= student.id %>').click();
+                      });
+                    </script>
+                    <% end %>
                 </h3>
 
                 <% end %>
