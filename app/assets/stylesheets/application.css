@@ -60,13 +60,14 @@
 
 .cyclic-random-button,
 .true-random-button {
-  width: 186.9px;
+  width: auto;
   height:5vh;
 }
 
 #nav-bar-right {
   position:fixed;
   height: 100vh;
+  width: 15%;
   top: 50px;
   right: 0;
   z-index: 1;
