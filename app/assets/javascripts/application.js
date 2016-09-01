@@ -17,7 +17,8 @@
 $(document).ready(function() {
     trueRandom();
     cyclicRandom();
-    toggleRandom();
+    toggleTrueRandom();
+    toggleCyclicRandom();
 });
 
 $(function() {
@@ -45,24 +46,47 @@ trueRandom = function() {
     })
 }
 
-toggleRandom = function() {
-  $('.random-toggle').on('click', function(){
-    console.log("Clicked!");
-    $('#true-random').toggle()
-    $('#cyclic-random').toggle()
+toggleTrueRandom = function() {
+  $('.true-random-button').on('click', function(){
+    console.log("clicked true");
+    $('#true-random').show()
+    $('#cyclic-random').hide()
+  })
+}
+toggleCyclicRandom = function() {
+  $('.cyclic-random-button').on('click', function(){
+    console.log("clicked cyclic");
+    $('#cyclic-random').show()
+    $('#true-random').hide()
   })
 }
 
 cyclicRandom = function() {
   var studentsString = $('#students').val()
-  var students = studentsString.substr(0, studentsString.length - 2).substr(2).split('", "').shuffle()
-  students.push("All students have been called. Refresh page to start over.")
+  var students = studentsString
+    .substr(0, studentsString.length - 2)
+    .substr(2)
+    .split('", "')
+    .shuffle();
     $('#cyclic-random').on('click', function() {
+      if (students.length > 1){
         console.log(students);
         $('#cyclic-random-student').empty()
         $('#cyclic-random-student').html(students[0])
         students.splice(0, 1)
-    })
+      } else if (students.length === 1){
+      	$('#cyclic-random-student').empty()
+  	    $('#cyclic-random-student').html(students[0])
+  	    studentsString = $('#students').val()
+  	    students = studentsString
+          .substr(0, studentsString.length - 2)
+          .substr(2)
+          .split('", "')
+          .shuffle();
+	   } else {
+      	console.log('no students');
+	   }
+   })
 }
 
 Array.prototype.shuffle = function() {

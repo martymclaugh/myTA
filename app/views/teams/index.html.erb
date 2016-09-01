@@ -1,3 +1,5 @@
+<div class="white teams center">
+
 <h1>
     <%= @classroom.teacher.name.capitalize %>'s
     <%= @classroom.name %>
@@ -5,10 +7,12 @@
 </h1>
 <%= button_to('Clear Teams', "/teachers/#{params[:teacher_id]}/classrooms/#{params[:classroom_id]}/teams/#{@classroom.teams.first.id}",
           method: "delete", remote: true, data: { confirm: 'Are you sure?', disable_with: 'loading...' }) %>
-
+<div>
 <% @classroom.teams.each do |team| %>
-<h3><%= team.name %></h3>
+<h2 class="team-name"><%= team.name %></h2>
 <% team.students.each do |student| %>
-<li><%= student.name %></li>
+<li><h3><%= student.name %></h3></li>
 <% end %>
 <% end %>
+</div>
+</div>
