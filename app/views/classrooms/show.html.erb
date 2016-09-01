@@ -20,12 +20,12 @@
             <% if @classroom.teacher_id == current_user.id %>
             <% if @classroom.students.count > 3 %>
             <button type="submit" class="btn btn-primary btn-lg btn-block navbar-button" data-toggle="modal" data-target="#Teams">
-                <h2>Create New Teams</h2>
+                <h2 class="navbar-text white">Create New Teams</h2>
             </button>
             <% if @classroom.teams.present? %>
             <form action="/teachers/<%= params[:teacher_id] %>/classrooms/<%= params[:id] %>/teams">
                 <button type="submit" class="btn btn-primary btn-lg btn-block navbar-button">
-                    <h2>View Teams</h2>
+                    <h2 class="navbar-text white">View Teams</h2>
                 </button>
 
             </form>
@@ -40,29 +40,29 @@
             <input id="teacher_" type="hidden" value="<%= @classroom.teacher.id %>">
             <input id="students" type="hidden" value="<%= @students %>">
             <div class="random-toggle">
-              <h2 class="white">Randomization Options:</h2>
+              <h2 class="white navbar-text white">Randomization Options:</h2>
                 <div class="btn-group" data-toggle="buttons">
                     <label class="btn btn-primary cyclic-random-button">
                         <input type="radio" name="options" id="option2" autocomplete="off">
-                        <h4>Cyclic</h4>
+                        <h4 class="navbar-text white">Cyclic</h4>
                     </label>
                     <label class="btn btn-primary active true-random-button">
                         <input type="radio" name="options" id="option3" autocomplete="off" checked>
-                        <h4>True</h4>
+                        <h4 class="navbar-text white">True</h4>
                     </label>
                 </div>
             </div>
             <button id="cyclic-random center" type="submit" class="btn btn-primary btn-lg btn-block navbar-button" data-toggle="modal" data-target="#CyclicRandom">
-                <h2>Random Student</h2>
+                <h2 class="navbar-text white">Random Student</h2>
             </button>
             <button id="true-random center" type="submit" class="btn btn-primary btn-lg btn-block navbar-button" data-toggle="modal" data-target="#TrueRandom">
-                <h2>Random Student</h2>
+                <h2 class="navbar-text white">Random Student</h2>
             </button>
 
             <form role="form" class="navbar-button" action="/teachers/<%= params[:id] %>/classrooms/<%= @classroom.id %>/students" method="post">
                 <input style="width: 100%" type="text" class="form-control" id="student-name" name="name" placeholder="Marty, Max, Andy...">
                 <button type="submit" class="btn btn-primary btn-lg btn-block navbar-button">
-                    <h2>Add Student</h2>
+                    <h2 class="navbar-text white">Add Student</h2>
                 </button><br>
             </form>
         </nav>
