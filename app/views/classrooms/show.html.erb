@@ -6,7 +6,7 @@
                 <!-- normal collapsable navbar markup -->
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                    <h2><%= @classroom.name %>
+                    <h2 class="navbar-text"><%= @classroom.name %>
                         <img class="dropdown-toggle dropdown-arrow" src="https://di-uploads-pod2.s3.amazonaws.com/grapponehonda/uploads/2015/03/down-arrow-white.png"></h2>
                 </a>
                 <ul class="dropdown-menu">
@@ -20,12 +20,12 @@
             <% if @classroom.teacher_id == current_user.id %>
             <% if @classroom.students.count > 3 %>
             <button type="submit" class="btn btn-primary btn-lg btn-block navbar-button" data-toggle="modal" data-target="#Teams">
-                <h2>Create New Teams</h2>
+                <h2 class="navbar-text white">Create New Teams</h2>
             </button>
             <% if @classroom.teams.present? %>
             <form action="/teachers/<%= params[:teacher_id] %>/classrooms/<%= params[:id] %>/teams">
                 <button type="submit" class="btn btn-primary btn-lg btn-block navbar-button">
-                    <h2>View Teams</h2>
+                    <h2 class="navbar-text white">View Teams</h2>
                 </button>
 
             </form>
@@ -40,29 +40,29 @@
             <input id="teacher_" type="hidden" value="<%= @classroom.teacher.id %>">
             <input id="students" type="hidden" value="<%= @students %>">
             <div class="random-toggle">
-              <h2 class="white">Randomization Options:</h2>
+              <h2 class="white navbar-text white">Randomization Options:</h2>
                 <div class="btn-group" data-toggle="buttons">
                     <label class="btn btn-primary cyclic-random-button">
                         <input type="radio" name="options" id="option2" autocomplete="off">
-                        <h4>Cyclic</h4>
+                        <h4 class="navbar-text white">Cyclic</h4>
                     </label>
                     <label class="btn btn-primary active true-random-button">
                         <input type="radio" name="options" id="option3" autocomplete="off" checked>
-                        <h4>True</h4>
+                        <h4 class="navbar-text white">True</h4>
                     </label>
                 </div>
             </div>
-            <button id="cyclic-random center" type="submit" class="btn btn-primary btn-lg btn-block navbar-button" data-toggle="modal" data-target="#CyclicRandom">
-                <h2>Random Student</h2>
+            <button id="cyclic-random" type="submit" class="btn btn-primary btn-lg btn-block navbar-button" data-toggle="modal" data-target="#CyclicRandom">
+                <h2 class="navbar-text white">Random Student</h2>
             </button>
-            <button id="true-random center" type="submit" class="btn btn-primary btn-lg btn-block navbar-button" data-toggle="modal" data-target="#TrueRandom">
-                <h2>Random Student</h2>
+            <button id="true-random" type="submit" class="btn btn-primary btn-lg btn-block navbar-button" data-toggle="modal" data-target="#TrueRandom">
+                <h2 class="navbar-text white">Random Student</h2>
             </button>
 
             <form role="form" class="navbar-button" action="/teachers/<%= params[:id] %>/classrooms/<%= @classroom.id %>/students" method="post">
                 <input style="width: 100%" type="text" class="form-control" id="student-name" name="name" placeholder="Marty, Max, Andy...">
                 <button type="submit" class="btn btn-primary btn-lg btn-block navbar-button">
-                    <h2>Add Student</h2>
+                    <h2 class="navbar-text white">Add Student</h2>
                 </button><br>
             </form>
         </nav>
@@ -78,7 +78,7 @@
                             <h1 class="modal-title" style="text-align:center;">The Lucky Student Is:</h1>
                         </div>
                         <div class="modal-body">
-                            <h2 id="true-random-student"></h2>
+                            <h2 id="true-random-student" class="center"></h2>
                         </div>
                     </div>
                 </div>
@@ -102,7 +102,7 @@
         <% if @classroom.students.count == 0 %>
           <h2 class="white center instructions">View the nav bar on the right to add a student</h2>
         <% end %>
-        <div class="container students">
+        <div class="students">
             <h2 class="white center home-content">Students:</h2>
             <div class="form-group">
                 <div class="col-sm-12 col-md-12 col-lg-12 students-search">
@@ -112,13 +112,13 @@
             <h3>
                 <form role="form" action="/teachers/<%= @classroom.teacher.id %>/classrooms/<%= @classroom.id %>/teams" method="post">
                     <% @classroom.students.each do |student| %>
-                    <div class="container student-name" style="position:relative; width:500px;">
+                    <div class="container student-name" style="position:relative; width:100%;">
                         <div class="form-group">
                             <div class="searchable-container">
                                 <div class="items">
                                     <div class="info-block block-info clearfix">
                                         <div data-toggle="buttons" class="btn-group bizmoduleselect">
-                                            <label class="btn btn-default active biz center" style="border: 2px solid black;">
+                                            <label class="btn btn-default active biz center" style="width: 50%; border: 2px solid black;">
                                                 <div class="bizcontent center">
                                                     <input checked="checked" type="checkbox" name="form[student_ids][<%= student.id %>]" autocomplete="off" value="<%= student.id %>">
                                                     <span class="glyphicon glyphicon-ok glyphicon-lg"></span><br>
