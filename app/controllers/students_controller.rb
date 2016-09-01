@@ -3,7 +3,7 @@ class StudentsController < ApplicationController
     @student = Student.new(name: params[:name])
     if @student.save
       ClassroomStudent.create(student_id: @student.id, classroom_id: params[:classroom_id])
-      @absence = Absence.create(absence: true)
+      @absence = Absence.create(absence: false)
       AbsenceStudent.create(student_id: @student.id, absence_id: @absence.id)
       redirect_to "/teachers/#{params[:teacher_id]}/classrooms/#{params[:classroom_id]}"
     end
@@ -19,7 +19,13 @@ class StudentsController < ApplicationController
     @students.delete(@student)
     p @students
     if request.xhr?
-      render template: 'classrooms/_cyclic_random.html.erb', layout: false
+      @students = []
+      @classroom.students.each do |student|
+        if student.absences.last.absence == false
+          @students << student.name
+        end
+      end
+      render json: @students
     end
   end
 end
