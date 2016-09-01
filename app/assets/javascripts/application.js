@@ -103,6 +103,10 @@ Array.prototype.shuffle = function() {
 
 removeAbsence = function(){
   $(".biz").on('click', function(event){
-    console.log(this.id);
+    $.ajax({
+      url: this.title,
+      data: this.id,
+      method: "POST"
+    })
   })
 }
