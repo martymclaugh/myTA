@@ -58,12 +58,12 @@
 
  .navbar-button {
    width: 100%;
-   height: 12vh;
+   height: 10vh;
  }
 
 .cyclic-random-button,
 .true-random-button {
-  width: 7.4vw;;
+  width: 7.2vw;;
   height:auto;
 }
 
@@ -80,8 +80,6 @@
 
 #cyclic-random {
   display:none;
-  width: 100%;
-  height:20vh;
 }
 
 .home-content{
