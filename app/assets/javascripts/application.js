@@ -19,8 +19,11 @@ $(document).ready(function() {
     toggleCyclicRandom();
     trueRandom();
     cyclicRandom();
+    $(window).load(function () {
+      console.log("page loaded!");
+      removeAbsence();
+    });
 });
-
 $(function() {
     $('#search').on('keyup', function() {
         var pattern = $(this).val();
@@ -96,4 +99,10 @@ Array.prototype.shuffle = function() {
         input[i] = itemAtIndex;
     }
     return input;
+}
+
+removeAbsence = function(){
+  $(".biz").on('click', function(event){
+    console.log(this.id);
+  })
 }

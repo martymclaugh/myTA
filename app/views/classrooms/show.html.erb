@@ -112,14 +112,14 @@
             <h3>
                 <form role="form" action="/teachers/<%= @classroom.teacher.id %>/classrooms/<%= @classroom.id %>/teams" method="post">
                     <% @classroom.students.each do |student| %>
-                    <div class="container student-name" style="position:relative; width:100%;">
+                    <div class="container student-name" style="position:relative; width:100%; left:25%;">
                         <div class="form-group">
                             <div class="searchable-container">
                                 <div class="items">
                                     <div class="info-block block-info clearfix">
                                         <div data-toggle="buttons" class="btn-group bizmoduleselect">
-                                            <label class="btn btn-default active biz center" style="width: 50%; border: 2px solid black;">
-                                                <div id="<%= student.id %>"class="bizcontent center">
+                                            <label id="<%= student.id %>" class="btn btn-default active biz center" style="width: 50%; border: 2px solid black;">
+                                                <div class="bizcontent center">
                                                     <input checked="checked" type="checkbox" name="form[student_ids][<%= student.id %>]" a utocomplete="off" value="<%= student.id %>">
                                                     <span class="glyphicon glyphicon-ok glyphicon-lg"></span><br>
                                                     <h4 class="student-name center"><%= student.name %></h4>
@@ -135,6 +135,7 @@
                     <script>
                       jQuery(function(){
                          jQuery('#<%= student.id %>').click();
+                         jQuery('#<%= student.id %>').addClass("absent");
                       });
                     </script>
                     <% end %>
