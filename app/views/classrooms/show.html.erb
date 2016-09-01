@@ -155,14 +155,15 @@
                                 You have
                                 <%= @classroom.students.count %>
                                 students
+                                <form action="/teachers/<%= params[:teacher_id] %>/classrooms/<%= @classroom.id %>/teams" method="post">
                                 <div class="form-group">
                                     <label for="teams">
                                         How many teams would you like?</label>
                                     <input type="text" style="width:20%" class="form-control" id="teams" name="teams" placeholder="enter number">
                                     <input type="hidden" class="form-control" id="class-name" name="classroom" value="<%= @classroom.id %>">
-                                </div>
-                                <button type="submit" class="btn btn-success btn">Create Teams</button><br>
-                            </form>
+                          </div>
+                          <button type="submit" class="btn btn-success btn">Create Teams</button><br>
+                        </form>
 
                         </div>
                     </div>

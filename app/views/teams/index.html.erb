@@ -1,10 +1,12 @@
 <div class="white teams center">
+  <h2><a class="links back-link" href="/teachers/<%= params[:teacher_id] %>/classrooms/<%= params[:classroom_id] %>/">Back</a></h2>
 
 <h1>
     <%= @classroom.teacher.name.capitalize %>'s
     <%= @classroom.name %>
     Teams
 </h1>
+<% if @classroom.teams.present? %>
 <%= button_to('Clear Teams', "/teachers/#{params[:teacher_id]}/classrooms/#{params[:classroom_id]}/teams/#{@classroom.teams.first.id}",
           method: "delete", remote: true, data: { confirm: 'Are you sure?', disable_with: 'loading...' }) %>
 <div>
@@ -14,5 +16,10 @@
 <li><h3><%= student.name %></h3></li>
 <% end %>
 <% end %>
+<% else %>
+<h2>You don't currently have any teams.</h2>
+<h3>Click 'Back' to make new teams.</h3>
+<% end %>
+
 </div>
 </div>

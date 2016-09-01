@@ -201,3 +201,7 @@ body {
 .student-name {
   display: inline-block;
 }
+
+.back-link {
+  margin-bottom: 90%
+}
