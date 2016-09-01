@@ -14,13 +14,17 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+//= require jquery.turbolinks
 $(document).ready(function() {
     toggleTrueRandom();
     toggleCyclicRandom();
     trueRandom();
     cyclicRandom();
+    $(window).load(function () {
+      console.log("page loaded!");
+      removeAbsence();
+    });
 });
-
 $(function() {
     $('#search').on('keyup', function() {
         var pattern = $(this).val();
@@ -30,21 +34,6 @@ $(function() {
         }).show();
     });
 });
-
-trueRandom = function() {
-    $('#true-random').on('click', function() {
-        console.log("clicked");
-        $.ajax({
-                url: '/teachers/' + $('#teacher_id').val() + '/classrooms/' + $('#classroom_id').val(),
-                method: 'GET'
-            })
-            .done(function(response) {
-                console.log(response);
-                $('#true-random-student').empty()
-                $('#true-random-student').html(response)
-            })
-    })
-}
 
 toggleTrueRandom = function() {
   $('.true-random-button').on('click', function(){
@@ -56,6 +45,21 @@ toggleCyclicRandom = function() {
   $('.cyclic-random-button').on('click', function(){
     $('#cyclic-random').show()
     $('#true-random').hide()
+  })
+}
+
+trueRandom = function() {
+  $('#true-random').on("click", function(){
+    $.ajax({
+      url: this.name,
+      method: "GET"
+    })
+    .done(function(response){
+      console.log(response);
+      var students = response.shuffle();
+        $('#true-random-student').empty()
+        $('#true-random-student').html(students[0])
+    })
   })
 }
 
@@ -96,4 +100,14 @@ Array.prototype.shuffle = function() {
         input[i] = itemAtIndex;
     }
     return input;
+}
+
+removeAbsence = function(){
+  $(".biz").on('click', function(event){
+    $.ajax({
+      url: this.title,
+      data: this.id,
+      method: "POST"
+    })
+  })
 }
