@@ -52,10 +52,10 @@
                     </label>
                 </div>
             </div>
-            <button id="cyclic-random" type="submit" class="btn btn-primary btn-lg btn-block navbar-button" data-toggle="modal" data-target="#CyclicRandom">
+            <button id="cyclic-random" type="submit" class="btn btn-primary btn-lg btn-block navbar-button" data-toggle="modal" name="/teachers/<%= params[:id] %>/classrooms/<%= @classroom.id %>/students" data-target="#CyclicRandom">
                 <h2 class="navbar-text white">Random Student</h2>
             </button>
-            <button id="true-random" type="submit" class="btn btn-primary btn-lg btn-block navbar-button" data-toggle="modal" data-target="#TrueRandom">
+            <button id="true-random" type="submit" class="btn btn-primary btn-lg btn-block navbar-button" data-toggle="modal" name="/teachers/<%= params[:id] %>/classrooms/<%= @classroom.id %>/students" data-target="#TrueRandom">
                 <h2 class="navbar-text white">Random Student</h2>
             </button>
 

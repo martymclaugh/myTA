@@ -34,21 +34,6 @@ $(function() {
     });
 });
 
-trueRandom = function() {
-    $('#true-random').on('click', function() {
-        console.log("clicked");
-        $.ajax({
-                url: '/teachers/' + $('#teacher_id').val() + '/classrooms/' + $('#classroom_id').val(),
-                method: 'GET'
-            })
-            .done(function(response) {
-                console.log(response);
-                $('#true-random-student').empty()
-                $('#true-random-student').html(response)
-            })
-    })
-}
-
 toggleTrueRandom = function() {
   $('.true-random-button').on('click', function(){
     $('#true-random').show()
@@ -59,6 +44,21 @@ toggleCyclicRandom = function() {
   $('.cyclic-random-button').on('click', function(){
     $('#cyclic-random').show()
     $('#true-random').hide()
+  })
+}
+
+trueRandom = function() {
+  $('#true-random').on("click", function(){
+    $.ajax({
+      url: this.name,
+      method: "GET"
+    })
+    .done(function(response){
+      console.log(response);
+      var students = response.shuffle();
+        $('#true-random-student').empty()
+        $('#true-random-student').html(students[0])
+    })
   })
 }
 

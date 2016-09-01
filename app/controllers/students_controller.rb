@@ -19,7 +19,13 @@ class StudentsController < ApplicationController
     @students.delete(@student)
     p @students
     if request.xhr?
-      render template: 'classrooms/_cyclic_random.html.erb', layout: false
+      @students = []
+      @classroom.students.each do |student|
+        if student.absences.last.absence == false
+          @students << student.name
+        end
+      end
+      render json: @students
     end
   end
 end
