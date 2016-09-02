@@ -254,3 +254,8 @@ body {
   bottom: 31%;
   font-size: 120%
 }
+
+.destroy {
+  position: relative;
+  left:10%;
+}
