@@ -1,0 +1,59 @@
+<div class="col-sm-3 col-lg-2 col-sm-push-9 col-lg-push-10">
+  <nav id="nav-bar-right" class="navbar navbar-default navbar-fixed-side navbar-inverse nav-bar-right center">
+      <!-- normal collapsable navbar markup -->
+    <li class="dropdown">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+        <h2 class="navbar-text"><%= @classroom.name %>
+          <img class="dropdown-toggle dropdown-arrow" src="https://di-uploads-pod2.s3.amazonaws.com/grapponehonda/uploads/2015/03/down-arrow-white.png"></h2>
+      </a>
+        <ul class="dropdown-menu">
+            <% @classroom.teacher.classrooms.each do |classroom| %>
+            <li><a href="/teachers/<%= current_user.id%>/classrooms/<%= classroom.id %>"><%= classroom.name %></a></li>
+            <% end %>
+        </ul>
+    </li>
+    <% if @classroom.students.count > 3 %>
+      <button type="submit" class="btn btn-primary btn-lg btn-block navbar-button" data-toggle="modal" data-target="#Teams">
+        <h2 class="navbar-text white">Create New Teams</h2>
+      </button>
+      <% if @classroom.teams.present? %>
+        <form action="/teachers/<%= params[:teacher_id] %>/classrooms/<%= params[:id] %>/teams">
+          <button type="submit" class="btn btn-primary btn-lg btn-block navbar-button">
+            <h2 class="navbar-text white">View Teams</h2>
+          </button>
+        </form>
+      <% end %>
+    <% else %>
+      <p class="white">You need at least 4 students to create teams</p>
+    <% end %>
+    <input id="classroom_id" type="hidden" value="<%= @classroom.id %>">
+    <input id="teacher_" type="hidden" value="<%= @classroom.teacher.id %>">
+    <input id="students" type="hidden" value="<%= @students %>">
+    <div class="random-toggle">
+      <h2 class="white navbar-text white">Randomization Options:</h2>
+        <div class="btn-group" data-toggle="buttons">
+            <label class="btn btn-primary cyclic-random-button">
+                <input type="radio" name="options" id="option2" autocomplete="off">
+                <h4 class="navbar-text white">Cyclic</h4>
+            </label>
+            <label class="btn btn-primary active true-random-button">
+                <input type="radio" name="options" id="option3" autocomplete="off" checked>
+                <h4 class="navbar-text white">True</h4>
+            </label>
+        </div>
+    </div>
+    <button id="cyclic-random" type="submit" class="btn btn-primary btn-lg btn-block navbar-button" data-toggle="modal" name="/teachers/<%= params[:id] %>/classrooms/<%= @classroom.id %>/students" data-target="#CyclicRandom">
+        <h2 class="navbar-text white">Random Student</h2>
+    </button>
+    <button id="true-random" type="submit" class="btn btn-primary btn-lg btn-block navbar-button" data-toggle="modal" name="/teachers/<%= params[:id] %>/classrooms/<%= @classroom.id %>/students" data-target="#TrueRandom">
+        <h2 class="navbar-text white">Random Student</h2>
+    </button>
+
+    <form role="form" class="navbar-button" action="/teachers/<%= params[:teacher_id] %>/classrooms/<%= @classroom.id %>/students" method="post">
+        <input style="width: 100%" type="text" class="form-control" id="student-name" name="name" placeholder="Marty, Max, Andy...">
+        <button type="submit" class="btn btn-primary btn-lg btn-block navbar-button">
+            <h2 class="navbar-text white">Add Student</h2>
+        </button><br>
+    </form>
+  </nav>
+</div>
