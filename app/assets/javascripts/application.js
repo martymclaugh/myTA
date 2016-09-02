@@ -12,19 +12,38 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require_tree .
-//= require jquery.turbolinks
-$(document).ready(function() {
+$(document).ready(function() {    // code to execute on each page change
     toggleTrueRandom();
+    if ($('body.has-students-array').length > 0){
+      cyclicRandom();
+    }
     toggleCyclicRandom();
     trueRandom();
-    cyclicRandom();
-    $(window).load(function () {
-      console.log("page loaded!");
-      removeAbsence();
-    });
+    editClass();
+    doneEdit();
+    deleteStudent();
+    deleteTeams();
 });
+$(window).load(function () {
+  removeAbsence();
+});
+window.addEventListener('load', function(e) {
+  window.applicationCache.addEventListener('updateready', function(e) {
+    if (window.applicationCache.status == window.applicationCache.UPDATEREADY) {
+      // Browser downloaded a new app cache.
+      // Swap it in and reload the page to get the new hotness.
+      window.applicationCache.swapCache();
+      if (confirm('A new version of this site is available. Load it?')) {
+        window.location.reload();
+      }
+    } else {
+      // Manifest didn't changed. Nothing new to server.
+    }
+  }, false);
+
+}, false);
+
 $(function() {
     $('#search').on('keyup', function() {
         var pattern = $(this).val();
@@ -34,7 +53,6 @@ $(function() {
         }).show();
     });
 });
-
 toggleTrueRandom = function() {
   $('.true-random-button').on('click', function(){
     $('#true-random').show()
@@ -50,6 +68,7 @@ toggleCyclicRandom = function() {
 
 trueRandom = function() {
   $('#true-random').on("click", function(){
+    console.log("still working!");
     $.ajax({
       url: this.name,
       method: "GET"
@@ -66,10 +85,10 @@ trueRandom = function() {
 cyclicRandom = function() {
   var studentsString = $('#students').val()
   var students = studentsString
-    .substr(0, studentsString.length - 2)
-    .substr(2)
-    .split('", "')
-    .shuffle();
+  .substr(0, studentsString.length - 2)
+  .substr(2)
+  .split('", "')
+  .shuffle();
     $('#cyclic-random').on('click', function() {
       if (students.length > 1){
         console.log(students);
@@ -109,5 +128,43 @@ removeAbsence = function(){
       data: this.id,
       method: "POST"
     })
+  })
+}
+
+editClass = function(){
+  $('.class-edit').on('click', function(){
+    $('.class-content').hide()
+    $('.edit-class-show').show()
+  })
+}
+
+doneEdit = function(){
+  $('.done-edit').on('click', function(){
+    $('.edit-class-show').hide()
+    $('.class-content').show()
+  })
+}
+
+deleteStudent = function(){
+  $('.destroy-student').on('click', function(event){
+    event.preventDefault();
+    console.log(this.name);
+    url = $('#url-' + this.name).val()
+    console.log(url);
+    $('.container-' + this.name).remove()
+    console.log(url);
+    $.ajax({
+    url: url,
+    method: "DELETE"
+    }).done(function(){
+    })
+  })
+}
+
+deleteTeams = function(){
+  $('.destroy-teams').on('click', function(){
+    $('.teams-display').remove()
+    $('.no-teams').show()
+    $('.destroy-teams').remove()
   })
 }
