@@ -265,3 +265,7 @@ body {
 .instructions {
   margin-top: 8vh;
 }
+
+.home-show {
+  display: none;
+}
