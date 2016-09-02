@@ -116,5 +116,6 @@ removeAbsence = function(){
 editClass = function(){
   $('.class-edit').on('click', function(){
     $('.class-content').hide()
+    $('.edit-class-show').show()
   })
 }

@@ -205,3 +205,41 @@ body {
 .back-link {
   margin-bottom: 90%
 }
+.edit-class-show {
+  display: none;
+}
+
+.class-edit {
+  margin-top: 8%;
+}
+
+.edit-class-show {
+  margin-top: 8%;
+}
+
+.square {
+    float:left;
+    position: relative;
+    width: 30%;
+    padding-bottom : 30%; /* = width for a 1:1 aspect ratio */
+    margin:1.66%;
+    overflow:hidden;
+}
+
+.content {
+    position:absolute;
+    height:80%; /* = 100% - 2*10% padding */
+    width:90%; /* = 100% - 2*5% padding */
+    padding: 10% 5%;
+}
+.table{
+    display:table;
+    height:100%;
+    width:100%;
+}
+.table-cell{
+    display:table-cell;
+    vertical-align:middle;
+    height:100%;
+    width:100%;
+}

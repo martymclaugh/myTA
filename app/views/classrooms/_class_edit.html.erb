@@ -1,5 +1,14 @@
+
 <% @classroom.students.each do |student| %>
-  <%= student.name %> <button type="submit" class="btn btn-primary btn-lg btn-block">
-      <h2 class="navbar-text white">Destroy</h2>
-  </button>
+<div class="square">
+    <div class="content">
+        <div class="table">
+            <div class="table-cell">
+                <%= student.name %> <button type="submit" class="btn btn-danger btn">
+                  <h2 class="navbar-text white">Destroy</h2>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
 <% end %>
