@@ -269,3 +269,7 @@ body {
 .home-show {
   display: none;
 }
+
+.no-teams {
+  display: none;
+}

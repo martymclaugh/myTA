@@ -23,6 +23,7 @@ $(document).ready(function() {    // code to execute on each page change
     editClass();
     doneEdit();
     deleteStudent();
+    deleteTeams();
 });
 $(window).load(function () {
   removeAbsence();
@@ -157,5 +158,13 @@ deleteStudent = function(){
     method: "DELETE"
     }).done(function(){
     })
+  })
+}
+
+deleteTeams = function(){
+  $('.destroy-teams').on('click', function(){
+    $('.teams-display').remove()
+    $('.no-teams').show()
+    $('.destroy-teams').remove()
   })
 }

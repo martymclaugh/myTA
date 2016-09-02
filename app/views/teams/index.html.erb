@@ -7,19 +7,24 @@
     Teams
 </h1>
 <% if @classroom.teams.present? %>
-<%= button_to('Clear Teams', "/teachers/#{params[:teacher_id]}/classrooms/#{params[:classroom_id]}/teams/#{@classroom.teams.first.id}",
-          method: "delete", remote: true, class: 'btn btn-danger', data: { confirm: 'Are you sure?', disable_with: 'loading...' }) %>
-<div>
-<% @classroom.teams.each do |team| %>
-<h2 class="team-name"><%= team.name %></h2>
-<% team.students.each do |student| %>
-<li><h3><%= student.name %></h3></li>
-<% end %>
-<% end %>
+  <%= button_to('Clear Teams', "/teachers/#{params[:teacher_id]}/classrooms/#{params[:classroom_id]}/teams/#{@classroom.teams.first.id}",
+          method: "delete", remote: true, class: 'btn btn-danger destroy-teams') %>
+  <div class="teams-display">
+  <% @classroom.teams.each do |team| %>
+    <h2 class="team-name"><%= team.name %></h2>
+    <% team.students.each do |student| %>
+      <li><h3><%= student.name %></h3></li>
+    <% end %>
+  <% end %>
+</div>
 <% else %>
+<div class="no-teams-default">
 <h2>You don't currently have any teams.</h2>
 <h3>Click 'Back' to make new teams.</h3>
+</div>
 <% end %>
-
+<div class="no-teams">
+<h2>You don't currently have any teams.</h2>
+<h3>Click 'Back' to make new teams.</h3>
 </div>
 </div>
