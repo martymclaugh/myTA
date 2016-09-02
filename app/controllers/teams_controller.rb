@@ -30,6 +30,6 @@ class TeamsController < ApplicationController
     @classroom.teams.each do |team|
       team.destroy
     end
-    redirect_to "/teachers/#{params[:teacher_id]}/classrooms/#{params[:classroom_id]}/teams"
+    redirect_to "/teachers/#{params[:teacher_id]}/classrooms/#{params[:classroom_id]}"
   end
 end

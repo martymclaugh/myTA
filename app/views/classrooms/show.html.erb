@@ -1,29 +1,22 @@
 <body class="has-students-array">
   <div class="class-content">
-    <script>
-      if (! localStorage.justOnce) {
-          localStorage.setItem("justOnce", "true");
-          window.location.reload();
-      }
-    </script>
-<% if logged_in? %>
-  <% if @classroom.teacher_id == current_user.id %>
-<div class="container-fluid">
-    <div class="row">
-          <%= render partial: "navbar" %>
-    <div class="col-sm-9 col-lg-10 col-sm-pull-3 col-lg-pull-2">
-          <%= render partial: "modals" %>
-          <%= render partial: "students_container" %>
-          <%= render partial: "new_teams_modal" %>
+    <% if logged_in? %>
+      <% if @classroom.teacher_id == current_user.id %>
+        <div class="container-fluid">
+        <div class="row">
+              <%= render partial: "navbar" %>
+        <div class="col-sm-9 col-lg-10 col-sm-pull-3 col-lg-pull-2">
+              <%= render partial: "modals" %>
+              <%= render partial: "students_container" %>
+              <%= render partial: "new_teams_modal" %>
+        </div>
+      <% end %>
+    <% end %>
     </div>
-    <% end %>
-    <% end %>
-    <% end %>
-</div>
-</div>
-</div>
-</div>
-<div class="edit-class-show">
-  <%= render partial: "class_edit" %>
-</div>
+    </div>
+    </div>
+    </div>
+    <div class="edit-class-show">
+      <%= render partial: "class_edit" %>
+  </div>
 </body>
