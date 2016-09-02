@@ -1,8 +1,9 @@
+<div class="student-desks">
 <div class="center edit-div">
   <button type="submit" class="btn btn-success btn white done-edit"><span class="fa fa-pencil-square-o" aria-hidden="true"></span>Done Editing</button>
-  <form role="form" action="/teachers/<%= params[:teacher_id] %>/classrooms/<%= @classroom.id %>/students" method="post">
+  <form class="new-student-form" role="form" action="/teachers/<%= params[:teacher_id] %>/classrooms/<%= @classroom.id %>/students" method="post">
       <input style="width: 30%" type="text" class="form-control add-student-form" id="student-name" name="name" placeholder="Marty, Max, Andy...">
-      <button type="submit" class="btn btn-primary btn-lg done-edit">
+      <button type="submit" class="btn btn-primary btn-lg new-student">
           <h2 class="navbar-text white">Add Student</h2>
       </button><br>
   </form>
@@ -21,3 +22,4 @@
           </div>
       </div>
       <% end %>
+</div>

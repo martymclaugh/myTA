@@ -1,0 +1,32 @@
+<div class="square container-<%= @student.id %>">
+  <input type="hidden" id="url-<%= @student.id %>" value="/teachers/<%= params[:teacher_id] %>/classrooms/<%= params[:id] %>/students/<%= @student.id %>">
+    <div class="content">
+        <div class="table">
+            <div class="table-cell">
+                <h3 class="student-name-destroy white"><%= @student.name %></h3>
+                <%= button_to('Remove', "/teachers/#{params[:teacher_id]}/classrooms/#{@classroom.id}/students/#{@student.id}",
+                          method: "delete", name:"#{@student.id}", remote: true, class: 'btn btn-danger destroy destroy-student') %>
+            </div>
+        </div>
+    </div>
+</div>
+<div title="split"></div>
+<div class="container student-name container-<%= @student.id %>" style="position:relative; width:100%; left:25%;">
+    <div class="form-group">
+        <div class="searchable-container">
+            <div class="items">
+                <div class="info-block block-info clearfix">
+                    <div data-toggle="buttons" class="btn-group bizmoduleselect">
+                        <label id="<%= @student.id %>" class="btn btn-default active biz center" title="/teachers/<%= params[:teacher_id] %>/classrooms/<%= p @classroom.id %>/students/<%= @student.id %>/absences" style="width: 50%; border: 2px solid black;">
+                            <div class="bizcontent center">
+                                <input checked="checked" type="checkbox" name="form[student_ids][<%= @student.id %>]" a utocomplete="off" value="<%= @student.id %>">
+                                <span class="glyphicon glyphicon-ok glyphicon-lg"></span><br>
+                                <h4 class="student-name center"><%= @student.name %></h4>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
