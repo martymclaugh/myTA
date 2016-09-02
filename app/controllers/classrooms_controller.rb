@@ -14,7 +14,9 @@ class ClassroomsController < ApplicationController
     @classroom = Classroom.find(params[:id])
     @students = []
     @classroom.students.each do |student|
-      @students << student.name
+      if student.absences.last.absence == false
+        @students << student.name
+      end
     end
     if request.xhr?
       render template: 'classrooms/_true_random.html.erb', layout: false

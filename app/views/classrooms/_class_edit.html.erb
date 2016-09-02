@@ -1,5 +1,11 @@
-<div class="center">
-  <button type="submit" class="btn btn-success btn white teams done-edit"><span class="fa fa-pencil-square-o" aria-hidden="true"></span>Done Editing</button>
+<div class="center edit-div">
+  <button type="submit" class="btn btn-success btn white done-edit"><span class="fa fa-pencil-square-o" aria-hidden="true"></span>Done Editing</button>
+  <form role="form" action="/teachers/<%= params[:teacher_id] %>/classrooms/<%= @classroom.id %>/students" method="post">
+      <input style="width: 30%" type="text" class="form-control add-student-form" id="student-name" name="name" placeholder="Marty, Max, Andy...">
+      <button type="submit" class="btn btn-primary btn-lg done-edit">
+          <h2 class="navbar-text white">Add Student</h2>
+      </button><br>
+  </form>
 </div>
       <% @classroom.students.each do |student| %>
       <div class="square container-<%= student.id %>">
@@ -7,8 +13,8 @@
           <div class="content">
               <div class="table">
                   <div class="table-cell">
-                      <h3 class="student-name-destroy white"><%= student.name %> </h3>
-                      <%= button_to('Destroy', "/teachers/#{params[:teacher_id]}/classrooms/#{params[:id]}/students/#{student.id}",
+                      <h3 class="student-name-destroy white"><%= student.name %></h3>
+                      <%= button_to('Remove', "/teachers/#{params[:teacher_id]}/classrooms/#{params[:id]}/students/#{student.id}",
                                 method: "delete", name:"#{student.id}", remote: true, class: 'btn btn-danger destroy destroy-student') %>
                   </div>
               </div>
