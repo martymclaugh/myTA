@@ -166,5 +166,9 @@ deleteTeams = function(){
     $('.teams-display').remove()
     $('.no-teams').show()
     $('.destroy-teams').remove()
+  $.ajax({
+    url: $('.back-link').attr('href') + 'teams/1',
+    method: "DELETE"
+  })
   })
 }
