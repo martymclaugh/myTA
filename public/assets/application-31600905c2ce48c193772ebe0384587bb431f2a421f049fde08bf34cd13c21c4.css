@@ -10,6 +10,7 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  **/
+
  .navbar-text {
    font-size: 1.2vw;
  }
@@ -88,8 +89,6 @@
 
 body {
     background-image: url('http://partysaints.co.uk/wp-content/uploads/2016/07/background-for-website.jpg');
-    -moz-background-size: cover;
-    -webkit-background-size: cover;
     background-size: cover;
     background-position: top center !important;
     background-repeat: no-repeat !important;
@@ -97,7 +96,7 @@ body {
 }
 
 .teams {
-  margin-top: 15%
+  margin-top: 5%
 }
 
 .instructions {
@@ -204,80 +203,4 @@ body {
 
 .back-link {
   margin-bottom: 90%
-}
-.edit-class-show {
-  display: none;
-}
-
-.class-edit {
-  margin-top: 10vh;
-}
-
-.edit-class-show {
-  margin-top: ;
-}
-
-.square {
-    float:left;
-    position: relative;
-    width: 30%;
-    padding-bottom : 30%; /* = width for a 1:1 aspect ratio */
-    margin:1.66%;
-    overflow:hidden;
-}
-
-.content {
-    position:absolute;
-    height:80%; /* = 100% - 2*10% padding */
-    width:90%; /* = 100% - 2*5% padding */
-    padding: 10% 5%;
-}
-.table{
-    display:table;
-    height:100%;
-    width:100%;
-}
-.table-cell{
-    background: url(http://www.ahomegardenparty.com/wp-content/uploads/2016/06/desk-free-stock-photo-illustration-of-a-student-desk-and-chair-inside-11-school-desk-background.png);
-    -moz-background-size: cover;
-    -webkit-background-size: cover;
-    background-size: 100%;
-    background-position: top center !important;
-    background-repeat: no-repeat !important;
-    display:table-cell;
-    vertical-align:middle;
-    height:100%;
-    width:100%;
-}
-.student-name-destroy {
-  position: relative;
-  bottom: 31%;
-  left: 5%;
-  font-size: 3vw;
-}
-
-.destroy {
-  position: relative;
-  left:20%;
-  height: 50%;
-}
-
-.instructions {
-  margin-top: 8vh;
-}
-
-.home-show {
-  display: none;
-}
-
-.no-teams {
-  display: none;
-}
-
-.edit-div {
-  margin-top: 100px;
-}
-
-.add-student-form {
-  margin-left: 35%;
 }

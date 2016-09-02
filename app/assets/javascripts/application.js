@@ -68,13 +68,11 @@ toggleCyclicRandom = function() {
 
 trueRandom = function() {
   $('#true-random').on("click", function(){
-    console.log("still working!");
     $.ajax({
       url: this.name,
       method: "GET"
     })
     .done(function(response){
-      console.log(response);
       var students = response.shuffle();
         $('#true-random-student').empty()
         $('#true-random-student').html(students[0])
