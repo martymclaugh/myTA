@@ -97,7 +97,7 @@ body {
 }
 
 .teams {
-  margin-top: 5%
+  margin-top: 15%
 }
 
 .instructions {
@@ -210,11 +210,11 @@ body {
 }
 
 .class-edit {
-  margin-top: 8%;
+  margin-top: 15%;
 }
 
 .edit-class-show {
-  margin-top: 8%;
+  margin-top: ;
 }
 
 .square {
@@ -257,5 +257,6 @@ body {
 
 .destroy {
   position: relative;
-  left:10%;
+  left:20%;
+  height: 50%
 }

@@ -35,7 +35,6 @@ $(function() {
         }).show();
     });
 });
-
 toggleTrueRandom = function() {
   $('.true-random-button').on('click', function(){
     $('#true-random').show()
