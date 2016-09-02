@@ -273,3 +273,11 @@ body {
 .no-teams {
   display: none;
 }
+
+.edit-div {
+  margin-top: 100px;
+}
+
+.add-student-form {
+  margin-left: 35%;
+}

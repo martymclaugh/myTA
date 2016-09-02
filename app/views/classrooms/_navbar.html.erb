@@ -48,12 +48,5 @@
     <button id="true-random" type="submit" class="btn btn-primary btn-lg btn-block navbar-button" data-toggle="modal" name="/teachers/<%= params[:id] %>/classrooms/<%= @classroom.id %>/students" data-target="#TrueRandom">
         <h2 class="navbar-text white">Random Student</h2>
     </button>
-
-    <form role="form" class="navbar-button" action="/teachers/<%= params[:teacher_id] %>/classrooms/<%= @classroom.id %>/students" method="post">
-        <input style="width: 100%" type="text" class="form-control" id="student-name" name="name" placeholder="Marty, Max, Andy...">
-        <button type="submit" class="btn btn-primary btn-lg btn-block navbar-button">
-            <h2 class="navbar-text white">Add Student</h2>
-        </button><br>
-    </form>
   </nav>
 </div>
