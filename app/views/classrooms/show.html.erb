@@ -1,4 +1,10 @@
 <div class="class-content">
+<script>
+if (! localStorage.justOnce) {
+    localStorage.setItem("justOnce", "true");
+    window.location.reload();
+}
+ </script>
 <% if logged_in? %>
 <div class="container-fluid">
     <div class="row">
@@ -102,10 +108,11 @@
         </div>
         <% if @classroom.students.count == 0 %>
           <h2 class="white center instructions">View the nav bar on the right to add a student</h2>
-        <% end %>
+          <% else %>
         <div class="center">
         <button type="submit" class="btn btn-success btn white teams class-edit"><span class="fa fa-pencil-square-o" aria-hidden="true"></span>Edit <%= @classroom.name %></button>
       </div>
+      <% end %>
         <div class="students">
             <h2 class="white center home-content">Students:</h2>
             <div class="form-group">

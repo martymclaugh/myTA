@@ -21,11 +21,28 @@ $(document).ready(function() {
     trueRandom();
     cyclicRandom();
     editClass();
+    doneEdit();
     $(window).load(function () {
       console.log("page loaded!");
       removeAbsence();
     });
 });
+window.addEventListener('load', function(e) {
+  window.applicationCache.addEventListener('updateready', function(e) {
+    if (window.applicationCache.status == window.applicationCache.UPDATEREADY) {
+      // Browser downloaded a new app cache.
+      // Swap it in and reload the page to get the new hotness.
+      window.applicationCache.swapCache();
+      if (confirm('A new version of this site is available. Load it?')) {
+        window.location.reload();
+      }
+    } else {
+      // Manifest didn't changed. Nothing new to server.
+    }
+  }, false);
+
+}, false);
+
 $(function() {
     $('#search').on('keyup', function() {
         var pattern = $(this).val();
@@ -64,13 +81,13 @@ trueRandom = function() {
 }
 
 cyclicRandom = function() {
-  var studentsString = $('#students').val()
-  var students = studentsString
-    .substr(0, studentsString.length - 2)
-    .substr(2)
-    .split('", "')
-    .shuffle();
     $('#cyclic-random').on('click', function() {
+      var studentsString = $('#students').val()
+      var students = studentsString
+      .substr(0, studentsString.length - 2)
+      .substr(2)
+      .split('", "')
+      .shuffle();
       if (students.length > 1){
         console.log(students);
         $('#cyclic-random-student').empty()
@@ -116,5 +133,11 @@ editClass = function(){
   $('.class-edit').on('click', function(){
     $('.class-content').hide()
     $('.edit-class-show').show()
+  })
+}
+doneEdit = function(){
+  $('.done-edit').on('click', function(){
+    $('.edit-class-show').hide()
+    $('.class-content').show()
   })
 }

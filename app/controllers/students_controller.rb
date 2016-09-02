@@ -28,4 +28,9 @@ class StudentsController < ApplicationController
       render json: @students
     end
   end
+  def destroy
+    @student = Student.find(params[:id])
+    @student.destroy
+    redirect_to "/teachers/#{params[:teacher_id]}/classrooms/#{params[:classroom_id]}"
+  end
 end
