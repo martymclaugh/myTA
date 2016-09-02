@@ -241,11 +241,16 @@ body {
     background: url(http://www.ahomegardenparty.com/wp-content/uploads/2016/06/desk-free-stock-photo-illustration-of-a-student-desk-and-chair-inside-11-school-desk-background.png);
     -moz-background-size: cover;
     -webkit-background-size: cover;
-    background-size: cover;
+    background-size: 100%;
     background-position: top center !important;
     background-repeat: no-repeat !important;
     display:table-cell;
     vertical-align:middle;
     height:100%;
     width:100%;
+}
+.student-name-destroy {
+  position: relative;
+  bottom: 31%;
+  font-size: 120%
 }
