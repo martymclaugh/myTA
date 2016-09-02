@@ -147,13 +147,15 @@ doneEdit = function(){
 deleteStudent = function(){
   $('.destroy-student').on('click', function(event){
     event.preventDefault();
-    $('#container-' + this.name).hide()
-    console.log(this);
+    console.log(this.name);
     url = $('#url-' + this.name).val()
+    console.log(url);
+    $('.container-' + this.name).remove()
     console.log(url);
     $.ajax({
     url: url,
     method: "DELETE"
-  })
+    }).done(function(){
+    })
   })
 }

@@ -66,7 +66,7 @@ if (! localStorage.justOnce) {
                 <h2 class="navbar-text white">Random Student</h2>
             </button>
 
-            <form role="form" class="navbar-button" action="/teachers/<%= params[:id] %>/classrooms/<%= @classroom.id %>/students" method="post">
+            <form role="form" class="navbar-button" action="/teachers/<%= params[:teacher_id] %>/classrooms/<%= @classroom.id %>/students" method="post">
                 <input style="width: 100%" type="text" class="form-control" id="student-name" name="name" placeholder="Marty, Max, Andy...">
                 <button type="submit" class="btn btn-primary btn-lg btn-block navbar-button">
                     <h2 class="navbar-text white">Add Student</h2>
@@ -123,7 +123,7 @@ if (! localStorage.justOnce) {
             <h3>
                 <form role="form" action="/teachers/<%= @classroom.teacher.id %>/classrooms/<%= @classroom.id %>/teams" method="post">
                     <% @classroom.students.each do |student| %>
-                    <div class="container student-name" style="position:relative; width:100%; left:25%;">
+                    <div class="container student-name container-<%= student.id %>" style="position:relative; width:100%; left:25%;">
                         <div class="form-group">
                             <div class="searchable-container">
                                 <div class="items">

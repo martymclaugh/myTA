@@ -2,8 +2,8 @@
   <button type="submit" class="btn btn-success btn white teams done-edit"><span class="fa fa-pencil-square-o" aria-hidden="true"></span>Done Editing</button>
 </div>
       <% @classroom.students.each do |student| %>
-      <div class="square" id="container-<%= student.id %>">
-        <input type="hidden" value="/teachers/<%= params[:teacher_id] %>/classrooms/<%= params[:id] %>/students/<%= student.id %>" id="url-<%= student.id %>">
+      <div class="square container-<%= student.id %>">
+        <input type="hidden" id="url-<%= student.id %>" value="/teachers/<%= params[:teacher_id] %>/classrooms/<%= params[:id] %>/students/<%= student.id %>">
           <div class="content">
               <div class="table">
                   <div class="table-cell">
