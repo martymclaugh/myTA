@@ -1,3 +1,4 @@
+<div class="class-content">
 <% if logged_in? %>
 <div class="container-fluid">
     <div class="row">
@@ -102,6 +103,9 @@
         <% if @classroom.students.count == 0 %>
           <h2 class="white center instructions">View the nav bar on the right to add a student</h2>
         <% end %>
+        <div class="center">
+        <button type="submit" class="btn btn-success btn white teams class-edit"><span class="fa fa-pencil-square-o" aria-hidden="true"></span>Edit <%= @classroom.name %></button>
+      </div>
         <div class="students">
             <h2 class="white center home-content">Students:</h2>
             <div class="form-group">
@@ -151,18 +155,18 @@
                                 <button type="button" class="close white" data-dismiss="modal">&times;</button>
                                 <h1 class="modal-title">Teams</h1>
                             </div>
-                            <div class="modal-body">
+                            <div class="modal-body center">
                                 You have
                                 <%= @classroom.students.count %>
                                 students
                                 <form action="/teachers/<%= params[:teacher_id] %>/classrooms/<%= @classroom.id %>/teams" method="post">
                                 <div class="form-group">
                                     <label for="teams">
-                                        How many teams would you like?</label>
-                                    <input type="text" style="width:20%" class="form-control" id="teams" name="teams" placeholder="enter number">
+                                        How many teams would you like?</label><br>
+                                    <input class="center" type="text" style="width:20%" class="form-control" id="teams" name="teams" placeholder="enter number">
                                     <input type="hidden" class="form-control" id="class-name" name="classroom" value="<%= @classroom.id %>">
                           </div>
-                          <button type="submit" class="btn btn-success btn">Create Teams</button><br>
+                          <button type="submit" class="btn btn-success btn center">Create Teams</button><br>
                         </form>
 
                         </div>
@@ -182,6 +186,7 @@
     </h3>
     <% end %>
     <% end %>
+</div>
 </div>
 </div>
 </div>
