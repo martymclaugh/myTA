@@ -186,8 +186,10 @@ newStudent = function(){
 		})
 		.done(function(response){
       console.log(response);
-			$('.student-desks').append(response);
-      $('.new-student-form')[0].reset()
+      templates = response.split('<div title="split"></div>')
+			$('.student-desks').append(templates[0]);
+      $('.new-student-form')[0].reset();
+      $('.students').append(templates[1]);
 		})
 	})
 }
