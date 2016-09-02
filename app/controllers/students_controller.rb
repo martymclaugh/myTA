@@ -12,21 +12,11 @@ class StudentsController < ApplicationController
     @classroom = Classroom.find(params[:classroom_id])
     @students = []
     @classroom.students.each do |student|
-      @students << student.name
-    end
-    @students = @students.shuffle
-    @student = @students[0]
-    @students.delete(@student)
-    p @students
-    if request.xhr?
-      @students = []
-      @classroom.students.each do |student|
-        if student.absences.last.absence == false
-          @students << student.name
-        end
+      if student.absences.last.absence == false
+        @students << student.name
       end
-      render json: @students
     end
+    render json: @students
   end
   def destroy
     @student = Student.find(params[:id])
