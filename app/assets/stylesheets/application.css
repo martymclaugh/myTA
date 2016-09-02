@@ -261,3 +261,7 @@ body {
   left:20%;
   height: 50%;
 }
+
+.instructions {
+  margin-top: 8vh;
+}
