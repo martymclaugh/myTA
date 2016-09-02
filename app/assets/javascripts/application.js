@@ -12,14 +12,14 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require_tree .
-//= require jquery.turbolinks
-$(document).ready(function() {
+$(document).ready(function() {    // code to execute on each page change
     toggleTrueRandom();
+    if ($('body.has-students-array').length > 0){
+      cyclicRandom();
+    }
     toggleCyclicRandom();
     trueRandom();
-    cyclicRandom();
     editClass();
     doneEdit();
     deleteStudent();
