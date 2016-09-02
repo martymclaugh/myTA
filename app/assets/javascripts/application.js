@@ -20,6 +20,7 @@ $(document).ready(function() {
     toggleCyclicRandom();
     trueRandom();
     cyclicRandom();
+    editClass();
     $(window).load(function () {
       console.log("page loaded!");
       removeAbsence();
@@ -109,5 +110,11 @@ removeAbsence = function(){
       data: this.id,
       method: "POST"
     })
+  })
+}
+
+editClass = function(){
+  $('.class-edit').on('click', function(){
+    $('.class-content').hide()
   })
 }
