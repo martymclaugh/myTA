@@ -10,6 +10,7 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  **/
+
  .navbar-text {
    font-size: 1.2vw;
  }
@@ -88,8 +89,6 @@
 
 body {
     background-image: url('http://partysaints.co.uk/wp-content/uploads/2016/07/background-for-website.jpg');
-    -moz-background-size: cover;
-    -webkit-background-size: cover;
     background-size: cover;
     background-position: top center !important;
     background-repeat: no-repeat !important;
@@ -240,8 +239,6 @@ body {
 }
 .table-cell{
     background: url(http://www.ahomegardenparty.com/wp-content/uploads/2016/06/desk-free-stock-photo-illustration-of-a-student-desk-and-chair-inside-11-school-desk-background.png);
-    -moz-background-size: cover;
-    -webkit-background-size: cover;
     background-size: 100%;
     background-position: top center !important;
     background-repeat: no-repeat !important;
