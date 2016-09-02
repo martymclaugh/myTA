@@ -1,0 +1,48 @@
+<% if @classroom.students.count == 0 %>
+  <h2 class="white center instructions">View the nav bar on the right to add a student</h2>
+  <% else %>
+<div class="center">
+<button type="submit" class="btn btn-success btn white teams class-edit"><span class="fa fa-pencil-square-o" aria-hidden="true"></span>Edit <%= @classroom.name %></button>
+</div>
+<% end %>
+<div class="students">
+    <h2 class="white center home-content">Students:</h2>
+    <div class="form-group">
+        <div class="col-sm-12 col-md-12 col-lg-12 students-search">
+            <input style="width: 30%;" type="search" class="form-control students-form center" id="search" placeholder="Student Search">
+        </div>
+    </div>
+    <h3>
+        <form role="form" action="/teachers/<%= @classroom.teacher.id %>/classrooms/<%= @classroom.id %>/teams" method="post">
+            <% @classroom.students.each do |student| %>
+            <div class="container student-name container-<%= student.id %>" style="position:relative; width:100%; left:25%;">
+                <div class="form-group">
+                    <div class="searchable-container">
+                        <div class="items">
+                            <div class="info-block block-info clearfix">
+                                <div data-toggle="buttons" class="btn-group bizmoduleselect">
+                                    <label id="<%= student.id %>" class="btn btn-default active biz center" title="/teachers/<%= params[:teacher_id] %>/classrooms/<%= @classroom.id %>/students/<%= student.id %>/absences" style="width: 50%; border: 2px solid black;">
+                                        <div class="bizcontent center">
+                                            <input checked="checked" type="checkbox" name="form[student_ids][<%= student.id %>]" a utocomplete="off" value="<%= student.id %>">
+                                            <span class="glyphicon glyphicon-ok glyphicon-lg"></span><br>
+                                            <h4 class="student-name center"><%= student.name %></h4>
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <% if student.absences.last.absence == true %>
+            <script>
+              jQuery(function(){
+                 jQuery('#<%= student.id %>').click();
+                 jQuery('#<%= student.id %>').addClass("absent");
+              });
+            </script>
+            <% end %>
+        </h3>
+
+        <% end %>
+    </div>
