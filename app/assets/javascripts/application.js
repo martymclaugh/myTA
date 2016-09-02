@@ -24,6 +24,7 @@ $(document).ready(function() {    // code to execute on each page change
     doneEdit();
     deleteStudent();
     deleteTeams();
+    newStudent();
 });
 $(window).load(function () {
   removeAbsence();
@@ -169,4 +170,24 @@ deleteTeams = function(){
     method: "DELETE"
   })
   })
+}
+
+newStudent = function(){
+  $('.new-student').on('click', function(event){
+		event.preventDefault();
+		console.log(event);
+		var formData = $('.add-student-form').serialize()
+    console.log(formData);
+    url = $('.new-student-form').attr('action')
+		$.ajax({
+			url: url,
+			method: 'POST',
+			data: formData
+		})
+		.done(function(response){
+      console.log(response);
+			$('.student-desks').append(response);
+      $('.new-student-form')[0].reset()
+		})
+	})
 }
