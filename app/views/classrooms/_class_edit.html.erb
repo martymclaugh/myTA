@@ -2,13 +2,14 @@
   <button type="submit" class="btn btn-success btn white teams done-edit"><span class="fa fa-pencil-square-o" aria-hidden="true"></span>Done Editing</button>
 </div>
       <% @classroom.students.each do |student| %>
-      <div class="square">
+      <div class="square" id="container-<%= student.id %>">
+        <input type="hidden" value="/teachers/<%= params[:teacher_id] %>/classrooms/<%= params[:id] %>/students/<%= student.id %>" id="url-<%= student.id %>">
           <div class="content">
               <div class="table">
                   <div class="table-cell">
                       <h3 class="student-name-destroy white"><%= student.name %> </h3>
                       <%= button_to('Destroy', "/teachers/#{params[:teacher_id]}/classrooms/#{params[:id]}/students/#{student.id}",
-                                method: "delete", remote: true, class: 'btn btn-danger destroy', data: { confirm: 'Are you sure?', disable_with: 'loading...' }) %>
+                                method: "delete", name:"#{student.id}", remote: true, class: 'btn btn-danger destroy destroy-student') %>
                   </div>
               </div>
           </div>

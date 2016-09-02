@@ -22,10 +22,10 @@ $(document).ready(function() {
     cyclicRandom();
     editClass();
     doneEdit();
-    $(window).load(function () {
-      console.log("page loaded!");
-      removeAbsence();
-    });
+    deleteStudent();
+});
+$(window).load(function () {
+  removeAbsence();
 });
 window.addEventListener('load', function(e) {
   window.applicationCache.addEventListener('updateready', function(e) {
@@ -67,6 +67,7 @@ toggleCyclicRandom = function() {
 
 trueRandom = function() {
   $('#true-random').on("click", function(){
+    console.log("still working!");
     $.ajax({
       url: this.name,
       method: "GET"
@@ -81,13 +82,13 @@ trueRandom = function() {
 }
 
 cyclicRandom = function() {
+  var studentsString = $('#students').val()
+  var students = studentsString
+  .substr(0, studentsString.length - 2)
+  .substr(2)
+  .split('", "')
+  .shuffle();
     $('#cyclic-random').on('click', function() {
-      var studentsString = $('#students').val()
-      var students = studentsString
-      .substr(0, studentsString.length - 2)
-      .substr(2)
-      .split('", "')
-      .shuffle();
       if (students.length > 1){
         console.log(students);
         $('#cyclic-random-student').empty()
@@ -135,9 +136,24 @@ editClass = function(){
     $('.edit-class-show').show()
   })
 }
+
 doneEdit = function(){
   $('.done-edit').on('click', function(){
     $('.edit-class-show').hide()
     $('.class-content').show()
+  })
+}
+
+deleteStudent = function(){
+  $('.destroy-student').on('click', function(event){
+    event.preventDefault();
+    $('#container-' + this.name).hide()
+    console.log(this);
+    url = $('#url-' + this.name).val()
+    console.log(url);
+    $.ajax({
+    url: url,
+    method: "DELETE"
+  })
   })
 }

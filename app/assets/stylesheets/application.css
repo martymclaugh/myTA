@@ -252,11 +252,12 @@ body {
 .student-name-destroy {
   position: relative;
   bottom: 31%;
-  font-size: 120%
+  left: 5%;
+  font-size: 3vw;
 }
 
 .destroy {
   position: relative;
   left:20%;
-  height: 50%
+  height: 50%;
 }
