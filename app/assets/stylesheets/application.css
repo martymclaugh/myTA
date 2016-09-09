@@ -258,9 +258,9 @@ body {
     width:100%;
 }
 .student-name-destroy {
+  text-align: right;
   position: relative;
-  margin-top: -2%;
-  left: 5%;
+  margin-top: -8%;
   font-size: 2vw;
 }
 
