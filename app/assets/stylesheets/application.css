@@ -260,12 +260,13 @@ body {
 .student-name-destroy {
   text-align: right;
   position: relative;
-  margin-top: -8%;
+  margin-top: -50%;
   font-size: 2vw;
 }
 
 .destroy-student {
   margin-left: 20%;
+  margin-bottom: 0;
 }
 
 .instructions {
