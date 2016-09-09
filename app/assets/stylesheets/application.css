@@ -259,14 +259,15 @@ body {
 }
 .student-name-destroy {
   text-align: center;
-  position: relative;
-  margin-top: -10%;
+  position: absolute;
   font-size: 2vw;
+  top:-18%
 }
 
 .destroy-student {
   margin-left: 20%;
   padding: 0;
+  position: absolute;
 }
 
 .instructions {
