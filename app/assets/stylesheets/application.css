@@ -10,6 +10,14 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  **/
+
+ .front-title {
+  padding-top: 50px;
+  padding-bottom: 15px;
+ }
+ .navbar-right {
+   padding-right: 5px;
+ }
  .navbar-text {
    font-size: 1.2vw;
  }
@@ -210,19 +218,24 @@ body {
 }
 
 .class-edit {
-  margin-top: 10vh;
+  margin-top: 60px;
+  margin-bottom: 5%;
 }
 
 .edit-class-show {
-  margin-top: ;
 }
 
 .square {
+  background: url(http://www.ahomegardenparty.com/wp-content/uploads/2016/06/desk-free-stock-photo-illustration-of-a-student-desk-and-chair-inside-11-school-desk-background.png);
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  background-size: 100%;
+  background-position: top center !important;
+  background-repeat: no-repeat !important;
     float:left;
     position: relative;
-    width: 30%;
-    height: 15%;
-    padding-bottom : 30%; /* = width for a 1:1 aspect ratio */
+    width: 15%;
+    padding-bottom : 15%; /* = width for a 1:1 aspect ratio */
     margin:1.66%;
     overflow:hidden;
 }
@@ -239,12 +252,6 @@ body {
     width:100%;
 }
 .table-cell{
-    background: url(http://www.ahomegardenparty.com/wp-content/uploads/2016/06/desk-free-stock-photo-illustration-of-a-student-desk-and-chair-inside-11-school-desk-background.png);
-    -moz-background-size: cover;
-    -webkit-background-size: cover;
-    background-size: 100%;
-    background-position: top center !important;
-    background-repeat: no-repeat !important;
     display:table-cell;
     vertical-align:middle;
     height:100%;
@@ -252,15 +259,13 @@ body {
 }
 .student-name-destroy {
   position: relative;
-  bottom: 31%;
+  bottom: 50%;
   left: 5%;
-  font-size: 3vw;
+  font-size: 2vw;
 }
 
-.destroy {
-  position: relative;
-  left:20%;
-  height: 50%;
+.destroy-student {
+  margin-left: 20%;
 }
 
 .instructions {

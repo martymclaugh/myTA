@@ -90,7 +90,6 @@ cyclicRandom = function() {
   .shuffle();
     $('#cyclic-random').on('click', function() {
       if (students.length > 1){
-        console.log(students);
         $('#cyclic-random-student').empty()
         $('#cyclic-random-student').html(students[0])
         students.splice(0, 1)
@@ -147,11 +146,8 @@ doneEdit = function(){
 deleteStudent = function(){
   $('.destroy-student').on('click', function(event){
     event.preventDefault();
-    console.log(this.name);
     url = $('#url-' + this.name).val()
-    console.log(url);
     $('.container-' + this.name).remove()
-    console.log(url);
     $.ajax({
     url: url,
     method: "DELETE"
@@ -175,9 +171,7 @@ deleteTeams = function(){
 newStudent = function(){
   $('.new-student').on('click', function(event){
 		event.preventDefault();
-		console.log(event);
 		var formData = $('.add-student-form').serialize()
-    console.log(formData);
     url = $('.new-student-form').attr('action')
 		$.ajax({
 			url: url,
@@ -185,7 +179,6 @@ newStudent = function(){
 			data: formData
 		})
 		.done(function(response){
-      console.log(response);
       templates = response.split('<div title="split"></div>')
 			$('.student-desks').append(templates[0]);
       $('.new-student-form')[0].reset();
