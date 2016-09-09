@@ -131,23 +131,24 @@ removeAbsence = function(){
 
 editClass = function(){
   $('.class-edit').on('click', function(){
-    $('.class-content').hide()
-    $('.edit-class-show').show()
+    $('.class-content').hide();
+    $('.edit-class-show').show();
   })
 }
 
 doneEdit = function(){
   $('.done-edit').on('click', function(){
-    $('.edit-class-show').hide()
-    $('.class-content').show()
+    window.location.reload();
+    $('.edit-class-show').hide();
+    $('.class-content').show();
   })
 }
 
 deleteStudent = function(){
   $('.destroy-student').on('click', function(event){
     event.preventDefault();
-    url = $('#url-' + this.name).val()
-    $('.container-' + this.name).remove()
+    url = $('#url-' + this.name).val();
+    $('.container-' + this.name).remove();
     $.ajax({
     url: url,
     method: "DELETE"
