@@ -1,36 +1,45 @@
 # myTA
 
+### Technologies Include:
+* Ruby on Rails 5.0
+* jQuery
+* AJAX
+* JavaScript
+* HTML
+* CSS
+* Bootstrap
 
-* myTA is a basic web application built using rails 5.0.0.1
-* Designed to make teachers lives easier by creating a simple way to record attendance and select project teams based on attendance
+###  Live on Heroku at: https://omyta.herokuapp.com/
 
-* Create classes and add students.
+# myTA is a basic web application built using rails 5.0.0.1
+## Designed to make teachers lives easier by creating a simple way to record attendance and select project teams based on attendance.
 
-* All classes and students will be saved to your account.
+## Other Features Include:
+## * Sleek design with front page instructions
+<img style="width:50%;" src="http://i.imgur.com/e8eCs1c.png">
 
-* Keep track of your students, by marking whether they are absent or not.
+## * Easily manage and create classes through the class dashboard
+<img style="width:50%;" src="http://i.imgur.com/r28saOq.png">
 
-* Students will be marked as absent every day at 12 AM PST
+## * Classroom view page to manage class
+<img style="" src="http://i.imgur.com/fwV6rmH.png">
 
-* Create groups and teams based on who is currently here.
+## * Easily navigate to other classes using the sidebar
+<img style="" src="http://i.imgur.com/Jm3h744.png">
 
+## * Different types of randomization to call on students <br>
+<img style="" src="http://i.imgur.com/ZiGlUgi.png"><img style="float:right;" src="http://i.imgur.com/DBwGhkF.png">
 
-## Contributing
-## Fork the repo.
+## * Mark students absent just by clicking on their name
+  ## * Students will be marked as 'here' every day at 12 AM PST
+<img style="" src="http://i.imgur.com/w4qOB24.png">
 
-* Currently there are no tests, and I would love if people were to create some.
+## * Search for students easily when it's a large classroom
+<img style="" src="http://i.imgur.com/aN1dPqa.png">
 
-* myTA is very bare bones and any contributions will be very appreciated
+## * Create groups and teams based on who is currently here.
+<img style="width:50%;" src="http://i.imgur.com/y0b9GXZ.png">
+<img style="width:50%; float:right;" src="http://i.imgur.com/UVKkuAQ.png">
 
-* Try to dd a test for your change. Refactoring and documentation changes do not need new tests.
-
-* Push to your fork and submit a pull request.
-
-## Syntax:
-
-* Two spaces, no tabs.
-* No trailing whitespace. Blank lines should not have any space.
-* Prefer &&, || over and, or.
-* MyClass.my_method(my_arg) not my_method( my_arg ) or my_method my_arg.
-* a = b and not a=b.
-* Follow the conventions you see used in the source already.
+## * Add and delete students via the edit page
+<img style="" src="http://i.imgur.com/EOanB3o.png">
