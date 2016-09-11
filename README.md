@@ -15,7 +15,6 @@
 ## Designed to make teachers lives easier by creating a simple way to record attendance and select project teams based on attendance.
 
 ## Other Features Include:
-<img style="" src="">
 ## * Sleek design with front page instructions
 <img style="width:50%;" src="http://i.imgur.com/e8eCs1c.png">
 
